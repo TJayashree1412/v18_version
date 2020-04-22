@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CompensationService } from '../service/compensation.service';
+import { CreateCompensation } from '../model/create-compensation';
 
 @Component({
   selector: 'app-my-comp-requests',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyCompRequestsComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  createCompReq(){
+    this.router.navigate(['/raiseCompRequest']);
+  }
 }

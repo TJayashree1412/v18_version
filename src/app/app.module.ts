@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -43,8 +43,12 @@ import { OnboardingViewsComponent } from './onboarding-views/onboarding-views.co
 import { GeneralViewsComponent } from './general-views/general-views.component';
 import { OnboardReportsComponent } from './onboard-reports/onboard-reports.component';
 import { FmlaViewComponent } from './fmla-view/fmla-view.component';
-import { StaffingTeamComponent } from './staffing-team/staffing-team.component' ;
+import { StaffingTeamComponent } from './staffing-team/staffing-team.component';
+import { PrivacyNoticeComponent } from './privacy-notice/privacy-notice.component';
+import { ViewIBMIComponent } from './view-ibmi/view-ibmi.component' ;
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditIBMIComponent } from './view-ibmi/edit-ibmi/edit-ibmi.component';
+import { AddIBMIComponent } from './view-ibmi/add-ibmi/add-ibmi.component';
 
 @NgModule({
   declarations: [
@@ -84,16 +88,21 @@ import { NgxPaginationModule } from 'ngx-pagination';
     GeneralViewsComponent,
     OnboardReportsComponent,
     FmlaViewComponent,
-    StaffingTeamComponent
+    StaffingTeamComponent,
+    PrivacyNoticeComponent,
+    ViewIBMIComponent,
+    EditIBMIComponent,
+    AddIBMIComponent
     // RoutingComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [DataService,AuthGuard],
   bootstrap: [AppComponent]

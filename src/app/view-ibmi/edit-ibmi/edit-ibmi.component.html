@@ -1,0 +1,35 @@
+<h1 class="page-header ds-dark" style="font-weight: bolder; font-size: 50px; margin-top: 1.5%; margin-left: 1%; font-style: italic;"> US HCAM Contacts</h1>
+<h2 class="page-header" style="margin-top: 0.5%; margin-left: 6.1%; font-style: italic; color: gray; font-weight: bold; font-size: 30px;">Update US HCAM contact</h2>
+
+<div style="margin-left: 2%; margin-top: 5%;">
+<div class="ds-row ds-mar-b-1_5">
+  <label for="name">Name: </label>
+  <input type="text" id="name" name="name" [(ngModel)]="resource">
+</div>   
+<div class="ds-row ds-mar-b-1_5">
+  <label for="email" >E-mail:</label>
+  <input type="text" id="email" name="email" [(ngModel)]="emailId">
+</div>
+        
+<div class="ds-row ds-mar-b-1_5">
+  <label for="phone">Business phone:</label>
+        <input type="text" id="phone" name="phone" [(ngModel)]="phone">
+</div>
+
+<div class="ds-row ds-mar-b-1_5">
+  <label for="fax">Fax number:</label>
+        <input type="text" id="fax" name="fax" [(ngModel)]="faxNum">
+</div>
+<div class="ds-row ds-mar-b-1_5">
+  <label for="country">Country/Region:</label>
+    <select id="country"  default="countryName"  style="font-size: 30px; justify-content: center; width: 500px;" >
+      <option [ngValue]="null" disables>--choose--</option>
+      <option [ngValue]="country" *ngFor="let country of countryMap" [selected]="country.paramName === countryName" >{{country.paramName}}</option>
+    </select>
+    <!-- <h2>{{countryName}}</h2> -->
+      </div>
+      <div>
+
+      </div>
+    </div>
+    

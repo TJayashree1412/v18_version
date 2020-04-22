@@ -33,8 +33,9 @@ import { OnboardReportsComponent } from './onboard-reports/onboard-reports.compo
 import { FmlaViewComponent } from './fmla-view/fmla-view.component' ;
 import { StaffingTeamComponent } from './staffing-team/staffing-team.component' ;
 import { PrivacyNoticeComponent } from './privacy-notice/privacy-notice.component';
-
-
+import {ViewIBMIComponent} from './view-ibmi/view-ibmi.component';
+import {EditIBMIComponent} from './view-ibmi/edit-ibmi/edit-ibmi.component';
+import {AddIBMIComponent} from './view-ibmi/add-ibmi/add-ibmi.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'Login', component: LoginComponent },
@@ -62,7 +63,7 @@ const routes: Routes = [
   { path: 'ViewH1BLCAExtension', component: H1BExtensionLCAInputComponent },
   { path: 'relocCompChkListHome', component: RedeploymentCompletionChecklistComponent },
   { path: 'ViewEndClientDtl', component: EndClientNameComponent },
-  { path: 'listCompReqCtdByCS', component: RaiseCompRequestComponent },
+  { path: 'raiseCompRequest', component: RaiseCompRequestComponent },
   { path: 'obApprover', component: ObApproverComponent },
   { path: 'onboaringViews', component: OnboardingViewsComponent },
   { path: 'generalViews', component: GeneralViewsComponent },
@@ -70,8 +71,9 @@ const routes: Routes = [
   { path: 'fmlaView', component: FmlaViewComponent },
   { path: 'compensationListST', component: StaffingTeamComponent },
   { path: 'help', component: HelpComponent },
-  
-  
+  { path: 'viewIBMI', component: ViewIBMIComponent},
+  {path: 'editIBMI/:id', component: EditIBMIComponent},
+  {path: 'addIBMI', component: AddIBMIComponent},
 ];
 
 @NgModule({

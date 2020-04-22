@@ -16,17 +16,17 @@
                         <li *ngIf="Roles.includes('VLEVREQ')"  ><a  [routerLink] ="'/assignmentStatus'">Leave requests</a></li>
                         <li *ngIf="Roles.includes('VSLEAVE')"  ><a  [routerLink] ="'/drLeaveRequest'">Track sick time</a></li>
                      </ul>
-                  </li>
-                  <li *ngIf="Roles.includes('VCMPLST')"   role="presentation">
-                     <a [routerLink] = "'/compHome'"  id="compensation">Compensation</a>
-                      <ul >
-                    <li  *ngIf="Roles.includes('VCMPLST')" ><a  [routerLink] ="'/myCompRequest'" >My Comp Request</a></li>
-                    <li *ngIf="Roles.includes('VALCMPHS')" ><a  [routerLink] ="'/allCompHistory'">All Comp History</a></li>
-                    <li *ngIf="Roles.includes('VALREPTS')" ><a  [routerLink] ="'/assignmentStatus'">Assignment Status</a></li>
-                    <li *ngIf="Roles.includes('VALLEVRQ')" ><a  [routerLink] ="'/drLeaveRequest'">Leave Request</a></li>
-                  </ul>
-              </li>
+                    </li>
 
+                    <li *ngIf="Roles.includes('VCMPLST')" class="ds-nav-item" >
+                      <a [routerLink] = "'/compHome'"  id="compensation" >Compensation</a>
+                        <ul >
+                          <li  *ngIf="Roles.includes('VCMPLST')"  ><a  [routerLink] ="'/myCompRequest'" >My Comp Request</a></li>
+                          <li *ngIf="Roles.includes('VALCMPHS')" ><a [routerLink] ="'/allCompHistory'">All Comp History</a></li>
+                          <li *ngIf="Roles.includes('VALREPTS')" ><a  [routerLink] ="'/assignmentStatus'">Assignment Status</a></li>
+                          <li *ngIf="Roles.includes('VALLEVRQ')" ><a  [routerLink] ="'/drLeaveRequest'">Leave Request</a></li>
+                        </ul>
+                    </li>
                   <li *ngIf="Roles.includes('VCMSTLST')"   role="presentation">
                     <a [routerLink] = "'/compensationListST'"  >Staffing Team</a>
                   </li>
@@ -67,7 +67,7 @@
                    </li>
         
                    <li *ngIf="Roles.includes('VOBADM')" role="presentation"><span class="ibm-subnav-heading">
-                    <a   style="width: max-content;height: 50px;" id="onboarding" [routerLink] ="'/obAdmin'">OB Admin</a></span>
+                    <a id="onboarding" [routerLink] ="'/obAdmin'">OB Admin</a></span>
                       <ul >
                         <li *ngIf="Roles.includes('VNBLSTOB')" role="presentation"><a  [routerLink] ="'/ViewOBNB'" >Notice board</a></li>
                         <li *ngIf="Roles.includes('VDOCSOB')" role="presentation" ><a    [routerLink] ="'/ViewOBDoc'" >Documents </a></li>
@@ -130,43 +130,3 @@
                 </ul>
           </div>
         </nav>
-     
-     
-
-
-      <!-- <nav role="navigation" aria-label="__REPLACE_ME__">
-        <div id="ibm-navigation">
-            <ul id="ibm-primary-links" role="tree" aria-labelledby="ibm-pagetitle-h1"> 
-                <li role="presentation" id="ibm-overview"><a role="treeitem" href="####">IBM Software</a></li>
-                <li role="presentation"><a role="treeitem" href="####">Products</a></li>
-                <li role="presentation"><a aria-selected="true" role="treeitem" href="####">Services</a></li>
-                <li role="presentation"><span class="ibm-subnav-heading">Downloads</span>
-                    <ul>
-                        <li role="presentation"><a role="treeitem" href="####">All downloads</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Trials and demos</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">No-charge products and tools</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Updates, drivers, and fixes</a></li>
-                    </ul>
-                </li>
-                <li role="presentation"><span class="ibm-subnav-heading">Library</span>
-                    <ul>
-                        <li role="presentation"><a role="treeitem" href="####">All publications</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Announcements</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Brief</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Brochures</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Case studies</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Data sheets</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Information center</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Redbooks</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Release notes</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">Tutorial</a></li>
-                        <li role="presentation"><a role="treeitem" href="####">White papers</a></li>
-                    </ul>
-                </li>
-                <li role="presentation"><a role="treeitem" href="####">News</a></li>
-                <li role="presentation"><a role="treeitem" href="####">Training and certification</a></li>
-                <li role="presentation"><a role="treeitem" href="####">Events</a></li>
-                <li role="presentation"><a role="treeitem" href="####">Support</a></li>
-            </ul>
-        </div>    
-    </nav> -->

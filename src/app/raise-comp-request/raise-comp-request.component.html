@@ -1,1 +1,49 @@
-<p>raise-comp-request works!</p>
+<h1 class="page-header">Create compensation request</h1>
+
+<form [formGroup]="raiseCompForm" class="raiseComp" >
+    <div class="ds-text-contextual-red-3">
+        <p >IBM Confidential</p>
+    </div>
+    
+
+    <!-- <div class="ds-row">
+        <div class="ds-col-xs-12 ds-mar-b-1">
+            <select style="width: 135%;" id="" required formControlName="createComp" 
+            ng-options="options" style="height: 25px;" >
+                <option value="Select">select</option>
+                 <option [ngValue]="items.value" *ngFor="let items of CreateCompensation.compensationType | keyvalue ">{{items.value}}</option>
+        </select> -->
+        <div class="ds-row">
+            <div class="ds-title ds-col-2" style="vertical-align: 10px;">Compensation Type
+            </div>
+            <div class="ds-col-4">
+                <select id="select-menu-sm" style="width: 100%" size="2" formControlName="createComp"  >
+                    <option *ngFor="let compType of createComp.compensationType" [value]="compType.compId">
+                {{compType.name}}
+                    </option>
+                    </select>
+
+
+            </div>
+    </div>
+        
+            <!-- <div class="ds-dropdown" style="width: 450px;" tabindex="0" role="menu" aria-label="w3DS Primary dropdown">
+                <div class="ds-title">Compensation Type</div>
+                <div class="ds-options" role="group" >
+                    <div class="ds-option" role="menuitem" tabindex="-1" >
+                        Option 1
+                    </div>
+                    <div class="ds-option ds-disabled" role="menuitem" tabindex="-1" aria-disabled="true">
+                        Option 2
+                    </div>
+                    <div class="ds-option" role="menuitem" tabindex="-1">
+                        Option 3
+                    </div>
+                    <div class="ds-option" role="menuitem" tabindex="-1">
+                        Option 4
+                    </div>
+                </div>
+            </div> -->
+        <!-- </div>
+    </div> -->
+</form>

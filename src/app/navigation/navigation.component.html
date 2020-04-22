@@ -1,200 +1,172 @@
- <div class="ds-flex ds-flex-align-items-center ds-mar-l-auto">
-  <div class="ds-hide-xs ds-display-lg-flex">
-    <div class="ds-nav" role="navigation">
-     <div class="ds-nav-container ds-mar-r-1 " style="width: 1600px;">
-         <ul class="ds-nav-list ds-nav-top-level">
-          <li *ngIf="Roles.includes('site-home')" class="ds-nav-item">
-             <a [routerLink] = "'/Home'" class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5">Home</a>
-          </li>
-          <li *ngIf="Roles.includes('VUSASSC')" class="ds-nav-item">
-            <a [routerLink] = "'/viewHome'" id="usLanded" class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5">US Landed</a>
-              <ul class="ds-nav-list ds-nav-second-level ds-z-high">
-                <li *ngIf="Roles.includes('VIBML')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/myCompRequest'" >US HCAM contacts</a></li>
-                <li *ngIf="Roles.includes('VIBMID')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5"[routerLink] ="'/allCompHistory'">US HCAM Employee forms</a></li>
-                <li *ngIf="Roles.includes('VEMPINFO')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/assignmentStatus'">Employee info</a></li>
-                <li *ngIf="Roles.includes('VDATAST')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/drLeaveRequest'">Datasheet input</a></li>
-                <li *ngIf="Roles.includes('VSTATUS')" class="ds-nav-item "style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/myCompRequest'" >Employee assignment status</a></li>
-                <li *ngIf="Roles.includes('VEASR')" class="ds-nav-item "style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5"[routerLink] ="'/allCompHistory'">AEmployee assignment response</a></li>
-                <li *ngIf="Roles.includes('VLEVREQ')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/assignmentStatus'">Leave requests</a></li>
-                <li *ngIf="Roles.includes('VSLEAVE')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/drLeaveRequest'">Track sick time</a></li>
-             </ul>
-          </li>
-              
-          <li *ngIf="Roles.includes('VCMPLST')" class="ds-nav-item" >
-            <a [routerLink] = "'/compHome'"  id="compensation" class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5">Compensation</a>
-              <ul class="ds-nav-list ds-nav-second-level ds-z-high">
-                <li  *ngIf="Roles.includes('VCMPLST')" class="ds-nav-item " style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/myCompRequest'" >My Comp Request</a></li>
-                <li *ngIf="Roles.includes('VALCMPHS')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5"[routerLink] ="'/allCompHistory'">All Comp History</a></li>
-                <li *ngIf="Roles.includes('VALREPTS')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/assignmentStatus'">Assignment Status</a></li>
-                <li *ngIf="Roles.includes('VALLEVRQ')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/drLeaveRequest'">Leave Request</a></li>
-              </ul>
-          </li>
 
-          <li *ngIf="Roles.includes('VCMSTLST')" class="ds-nav-item" >
-            <a [routerLink] = "'/compensationListST'" style="width: max-content;height: 40px;" class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5">Staffing Team</a>
-          </li>
-
-          <li *ngIf="Roles.includes('VHQops')" class="ds-nav-item">
-            
-            <a [routerLink] = "'/hqOps'"  id="HQops" class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active  ds-text-contextual-blue-5" routerLinkActive="ds-text-neutral-1">HQ Ops</a>
-              <ul class="ds-nav-list ds-nav-second-level ds-z-high">
-                <li *ngIf="Roles.includes('VIMMGLST')" class="ds-nav-item " style="width: max-content;height: 40px;" ><a class="ds-nav-link" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/Home'" >Immigration</a></li>   
-                <li *ngIf="Roles.includes('VCMTALL')" id="allCompReq"style="width: max-content;height: 40px;"  class="ds-nav-item " ><a class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active  ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/allCompRequest'">All Comp Requets</a>
-                     <ul class="ds-nav-list ds-nav-third-level ds-z-medium" style="width: max-content;height: 40px;" style="height: 300px;width: 550px; background-color: white;">
-                       <li *ngIf="Roles.includes('VCMTLST')"class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/compHome'" >Compensation</a></li>
-                       <li *ngIf="Roles.includes('VCMPPEND')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewPendingAction'" >Pending action</a></li>
-                       <li *ngIf="Roles.includes('COMPAPPR')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewApprvpending'" >Approve comp</a></li>
-                       <li *ngIf="Roles.includes('VCMPLCT')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewLctTrnsfr'" >Redeployment tracker</a></li>
-                       <li *ngIf="Roles.includes('VONSITE')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewOnsiteHire'" >Onsite hire comp</a></li>
-                       <li *ngIf="Roles.includes('VPROCES')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewProcessRecord'" >Immediate action</a></li>
-                       <li *ngIf="Roles.includes('VCMPMGR')" class="ds-nav-item" style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/compteamMngrView'" >Manager action</a></li>
-                       <li *ngIf="Roles.includes('VCOMPDS')" class="ds-nav-item" style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewAllDataSheets'" >Data sheets</a></li>
-                       <li *ngIf="Roles.includes('VCMPVIEW')" class="ds-nav-item" style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/compensationViews'" >Comp views</a></li>
-                       <li *ngIf="Roles.includes('VELCSIGN')" class="ds-nav-item" style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/electronicSignature'" >Electronic signature</a></li>
-                       <li *ngIf="Roles.includes('VEARH')" class="ds-nav-item" style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/empAssignResp'" >Employee assignment response</a></li>
-                       <li *ngIf="Roles.includes('VLCAINP')" class="ds-nav-item" style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewH1BLCAExtension'" >H1B extension LCA input </a></li>
-                       <li *ngIf="Roles.includes('VRCOMPCL')" class="ds-nav-item" style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/relocCompChkListHome'" >Redeployment completion check list</a></li>
-                       <li *ngIf="Roles.includes('ENDCLT')" class="ds-nav-item" style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewEndClientDtl'" >End client name</a></li>
-                       <li *ngIf="Roles.includes('NCOMPREQ')" class="ds-nav-item" style="width: max-content;height: 40px;" ><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/listCompReqCtdByCS'" >Raise compensation request</a></li>
+        <nav role="navigation" aria-label="">
+          <div id="ibm-navigation"  >
+              <ul id="ibm-primary-links" role="tree" aria-labelledby="ibm-pagetitle-h1"> 
+                  <li  *ngIf="Roles.includes('site-home')" role="presentation" ><a role="treeitem" [routerLink] = "'/Home'">Home</a></li>
+                  
+                  <li *ngIf="Roles.includes('VUSASSC')"  role="presentation"><span class="ibm-subnav-heading">
+                    <a [routerLink] = "'/viewHome'" id="usLanded" >US Landed</a></span>
+                      <ul>
+                        <li *ngIf="Roles.includes('VIBML')" ><a  [routerLink] ="'/myCompRequest'" >US HCAM contacts</a></li>
+                        <li *ngIf="Roles.includes('VIBMID')"><a  [routerLink] ="'/allCompHistory'">US HCAM Employee forms</a></li>
+                        <li *ngIf="Roles.includes('VEMPINFO')"><a   [routerLink] ="'/assignmentStatus'">Employee info</a></li>
+                        <li *ngIf="Roles.includes('VDATAST')" ><a  [routerLink] ="'/drLeaveRequest'">Datasheet input</a></li>
+                        <li *ngIf="Roles.includes('VSTATUS')" ><a  [routerLink] ="'/myCompRequest'" >Employee assignment status</a></li>
+                        <li *ngIf="Roles.includes('VEASR')" ><a [routerLink] ="'/allCompHistory'">AEmployee assignment response</a></li>
+                        <li *ngIf="Roles.includes('VLEVREQ')"  ><a  [routerLink] ="'/assignmentStatus'">Leave requests</a></li>
+                        <li *ngIf="Roles.includes('VSLEAVE')"  ><a  [routerLink] ="'/drLeaveRequest'">Track sick time</a></li>
                      </ul>
-                    </li>
-          <li *ngIf="Roles.includes('VOBLIST')" class="ds-nav-item">
-            <a class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active  ds-text-contextual-blue-5" style="width: max-content;height: 50px;" routerLinkActive="ds-text-contextual-blue-5" id="onboarding" [routerLink] ="'/onboardingList'">onboarding</a>
-              <ul class="ds-nav-list ds-nav-third-level ds-z-medium">
-                <li *ngIf="Roles.includes('OBAPPR')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/obApprover'" >Onboarding Approver</a></li>
-                <li *ngIf="Roles.includes('VOBVIEW')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/onboaringViews'" >Onboarding views </a></li>
-                <li *ngIf="Roles.includes('VGENVIEW')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/generalViews'" >General views</a></li>
-                <li *ngIf="Roles.includes('VOBREP')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/onboardReports'" >Onboard Reports</a></li>
-                <li *ngIf="Roles.includes('FMLAAPPR')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/fmlaView'" >FMLA Approver</a></li>
-              </ul>
-           </li>
-
-           <li *ngIf="Roles.includes('VOBADM')" class="ds-nav-item">
-            <a class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active  ds-text-contextual-blue-5" style="width: max-content;height: 50px;" routerLinkActive="ds-text-contextual-blue-5" id="onboarding" [routerLink] ="'/obAdmin'">OB Admin</a>
-              <ul class="ds-nav-list ds-nav-third-level ds-z-medium ">
-                <li *ngIf="Roles.includes('VNBLSTOB')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5"  routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewOBNB'" >Notice board</a></li>
-                <li *ngIf="Roles.includes('VDOCSOB')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewOBDoc'" >Documents </a></li>
-                <li *ngIf="Roles.includes('VOBLTEMP')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewLetterTemplates'" >Letter templates</a></li>
-                <li *ngIf="Roles.includes('VHLPCNT')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/helpContent'" >Help content</a></li>
-               
-              </ul>
-           </li>
-          <li *ngIf="Roles.includes('VPROCLST')" class="ds-nav-item">
-            <a [routerLink] = "'/Home'" class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active ds-text-contextual-blue-5" style="width: max-content;height: 50px;"  routerLinkActive="ds-text-contextual-blue-5">Procurement</a>
-          </li>
-        </ul>
-          </li>
-          <li *ngIf="Roles.includes('VTRALIST')" class="ds-nav-item">
-            <a [routerLink] = "'/immigration'"  id="travelList" class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active  ds-text-contextual-blue-5" routerLinkActive="ds-text-neutral-1">Immigration</a>
-              <ul class="ds-nav-list ds-nav-second-level ds-z-high">
-                <li *ngIf="Roles.includes('VPLLIST')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/preLandingList'" >Pre-Landing List</a></li>
-                <li *ngIf="Roles.includes('VIMREP')" class="ds-nav-item" style="width: max-content;height: 50px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/immReportsHome'" >Immigration reports </a></li>
-              </ul>
-          </li>
-
-          <li *ngIf="Roles.includes('VAPPDOCS')" class="ds-nav-item">
-            <a [routerLink] = "'/ViewAppDocs'"  class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active  ds-text-contextual-blue-5" style="width: max-content;height: 40px;" routerLinkActive="ds-text-neutral-1">Documents</a>
-           </li>
-
-           <li *ngIf="Roles.includes('VADMHM')" class="ds-nav-item ">
-            <a class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active  ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" id="onboarding" [routerLink] ="'/admHome'">Administrator</a>
-              <ul class="ds-nav-list ds-nav-second-level ds-z-medium"  style="height:350px;width: 620px; background-color:white;">
-                <li *ngIf="Roles.includes('VPARLIST')" class="ds-nav-item " style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewParam'" >Parameters</a></li>
-                <li *ngIf="Roles.includes('VIBMIC')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewIBMI'" >US HCAM Contacts </a></li>
-                <li *ngIf="Roles.includes('VUSACLST')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewAcnt'" >US account contacts</a></li>
-                <li *ngIf="Roles.includes('VNBD')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewNB'" >Notice board</a></li>
-                <li *ngIf="Roles.includes('VDOCSADM')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewDoc'" >Documents</a></li>
-                <li *ngIf="Roles.includes('VOESDATA')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/GetPrevail'" > OES Data</a>
-                  <ul class="ds-nav-list ds-nav-third-level ds-z-medium">
-                    <li *ngIf="Roles.includes('VPREVAIL')"class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/GetPrevail'" >Prewailing wages</a></li>
-                    <li *ngIf="Roles.includes('VGEOTIER')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/GetGeoTier'" >Geo tier</a></li>
-                    <li *ngIf="Roles.includes('VGEOSAL')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ShowGeoSal'" >Geo Sal</a></li>
-                    <li *ngIf="Roles.includes('VSALSEL')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ShowSalSelect'" >Salary select</a></li>
+                  </li>
+                  <li *ngIf="Roles.includes('VCMPLST')"   role="presentation">
+                     <a [routerLink] = "'/compHome'"  id="compensation">Compensation</a>
+                      <ul >
+                    <li  *ngIf="Roles.includes('VCMPLST')" ><a  [routerLink] ="'/myCompRequest'" >My Comp Request</a></li>
+                    <li *ngIf="Roles.includes('VALCMPHS')" ><a  [routerLink] ="'/allCompHistory'">All Comp History</a></li>
+                    <li *ngIf="Roles.includes('VALREPTS')" ><a  [routerLink] ="'/assignmentStatus'">Assignment Status</a></li>
+                    <li *ngIf="Roles.includes('VALLEVRQ')" ><a  [routerLink] ="'/drLeaveRequest'">Leave Request</a></li>
                   </ul>
+              </li>
+
+                  <li *ngIf="Roles.includes('VCMSTLST')"   role="presentation">
+                    <a [routerLink] = "'/compensationListST'"  >Staffing Team</a>
+                  </li>
+        
+                  <li *ngIf="Roles.includes('VHQops')"  role="presentation"><span class="ibm-subnav-heading">
+                    
+                    <a [routerLink] = "'/hqOps'"  id="HQops" >HQ Ops</a></span>
+                      <ul>
+                        <li *ngIf="Roles.includes('VIMMGLST')"    ><a [routerLink] ="'/Home'" >Immigration</a></li>   
+                        <li *ngIf="Roles.includes('VCMTALL')" id="allCompReq"    > <span class="ibm-subnav-heading"><a   [routerLink] ="'/allCompRequest'">All Comp Requests</a></span>
+                             <ul >
+                               <li *ngIf="Roles.includes('VCMTLST')"role="presentation"  ><a  role="treeitem"  [routerLink] ="'/compHome'" >Compensation</a></li>
+                               <li *ngIf="Roles.includes('VCMPPEND')" role="presentation"  ><a    [routerLink] ="'/viewPendingAction'" >Pending action</a></li>
+                               <li *ngIf="Roles.includes('COMPAPPR')" role="presentation"  ><a    [routerLink] ="'/viewApprvpending'" >Approve comp</a></li>
+                               <li *ngIf="Roles.includes('VCMPLCT')" role="presentation"  ><a    [routerLink] ="'/viewLctTrnsfr'" >Redeployment tracker</a></li>
+                               <li *ngIf="Roles.includes('VONSITE')" role="presentation"  ><a    [routerLink] ="'/viewOnsiteHire'" >Onsite hire comp</a></li>
+                               <li *ngIf="Roles.includes('VPROCES')" role="presentation"  ><a    [routerLink] ="'/viewProcessRecord'" >Immediate action</a></li>
+                               <li *ngIf="Roles.includes('VCMPMGR')" role="presentation"   ><a    [routerLink] ="'/compteamMngrView'" >Manager action</a></li>
+                               <li *ngIf="Roles.includes('VCOMPDS')" role="presentation"   ><a    [routerLink] ="'/viewAllDataSheets'" >Data sheets</a></li>
+                               <li *ngIf="Roles.includes('VCMPVIEW')" role="presentation"   ><a    [routerLink] ="'/compensationViews'" >Comp views</a></li>
+                               <li *ngIf="Roles.includes('VELCSIGN')" role="presentation"   ><a    [routerLink] ="'/electronicSignature'" >Electronic signature</a></li>
+                               <li *ngIf="Roles.includes('VEARH')" role="presentation"   ><a    [routerLink] ="'/empAssignResp'" >Employee assignment response</a></li>
+                               <li *ngIf="Roles.includes('VLCAINP')" role="presentation"   ><a    [routerLink] ="'/ViewH1BLCAExtension'" >H1B extension LCA input </a></li>
+                               <li *ngIf="Roles.includes('VRCOMPCL')" role="presentation"   ><a    [routerLink] ="'/relocCompChkListHome'" >Redeployment completion check list</a></li>
+                               <li *ngIf="Roles.includes('ENDCLT')" role="presentation"   ><a    [routerLink] ="'/ViewEndClientDtl'" >End client name</a></li>
+                               <li *ngIf="Roles.includes('NCOMPREQ')" role="presentation"   ><a    [routerLink] ="'/listCompReqCtdByCS'" >Raise compensation request</a></li>
+                             </ul>
+                            </li>
+                  <li *ngIf="Roles.includes('VOBLIST')" role="presentation"><span class="ibm-subnav-heading">
+                    <a  id="onboarding" [routerLink] ="'/onboardingList'"> onboarding</a></span>
+                      <ul >
+                        <li *ngIf="Roles.includes('OBAPPR')" role="presentation"  ><a    [routerLink] ="'/obApprover'" >Onboarding Approver</a></li>
+                        <li *ngIf="Roles.includes('VOBVIEW')" role="presentation"  ><a    [routerLink] ="'/onboaringViews'" >Onboarding views </a></li>
+                        <li *ngIf="Roles.includes('VGENVIEW')" role="presentation"  ><a    [routerLink] ="'/generalViews'" >General views</a></li>
+                        <li *ngIf="Roles.includes('VOBREP')" role="presentation"  ><a    [routerLink] ="'/onboardReports'" >Onboard Reports</a></li>
+                        <li *ngIf="Roles.includes('FMLAAPPR')" role="presentation"  ><a    [routerLink] ="'/fmlaView'" >FMLA Approver</a></li>
+                      </ul>
+                   </li>
+        
+                   <li *ngIf="Roles.includes('VOBADM')" role="presentation"><span class="ibm-subnav-heading">
+                    <a   style="width: max-content;height: 50px;" id="onboarding" [routerLink] ="'/obAdmin'">OB Admin</a></span>
+                      <ul >
+                        <li *ngIf="Roles.includes('VNBLSTOB')" role="presentation"><a  [routerLink] ="'/ViewOBNB'" >Notice board</a></li>
+                        <li *ngIf="Roles.includes('VDOCSOB')" role="presentation" ><a    [routerLink] ="'/ViewOBDoc'" >Documents </a></li>
+                        <li *ngIf="Roles.includes('VOBLTEMP')" role="presentation" ><a    [routerLink] ="'/viewLetterTemplates'" >Letter templates</a></li>
+                        <li *ngIf="Roles.includes('VHLPCNT')" role="presentation" ><a    [routerLink] ="'/helpContent'" >Help content</a></li>
+                       
+                      </ul>
+                   </li>
+                  <li *ngIf="Roles.includes('VPROCLST')" role="presentation">
+                    <a [routerLink] = "'/Home'">Procurement</a>
+                  </li>
+                </ul>
+                  </li>
+                  <li *ngIf="Roles.includes('VTRALIST')" role="presentation"><span class="ibm-subnav-heading">
+                    <a [routerLink] = "'/immigration'"  id="travelList" >Immigration</a></span>
+                      <ul >
+                        <li *ngIf="Roles.includes('VPLLIST')" role="presentation"  ><a    [routerLink] ="'/preLandingList'" >Pre-Landing List</a></li>
+                        <li *ngIf="Roles.includes('VIMREP')" role="presentation"><a    [routerLink] ="'/immReportsHome'" >Immigration reports </a></li>
+                      </ul>
+                  </li>
+        
+                  <li *ngIf="Roles.includes('VAPPDOCS')" role="presentation">
+                    <a [routerLink] = "'/ViewAppDocs'" >Documents</a>
+                   </li>
+        
+                   <li *ngIf="Roles.includes('VADMHM')"   ><span class="ibm-subnav-heading">
+                    <a   id="onboarding" [routerLink] ="'/admHome'">Administrator</a></span>
+                      <ul >
+                        <li *ngIf="Roles.includes('VPARLIST')" role="presentation" ><a    [routerLink] ="'/ViewParam'" >Parameters</a></li>
+                        <li *ngIf="Roles.includes('VIBMIC')" role="presentation"  ><a    [routerLink] ="'/ViewIBMI'" >US HCAM Contacts </a></li>
+                        <li *ngIf="Roles.includes('VUSACLST')" role="presentation"  ><a    [routerLink] ="'/ViewAcnt'" >US account contacts</a></li>
+                        <li *ngIf="Roles.includes('VNBD')" role="presentation"  ><a    [routerLink] ="'/ViewNB'" >Notice board</a></li>
+                        <li *ngIf="Roles.includes('VDOCSADM')" role="presentation"  ><a    [routerLink] ="'/ViewDoc'" >Documents</a></li>
+                        <li *ngIf="Roles.includes('VOESDATA')" role="presentation"    ><span class="ibm-subnav-heading"><a    [routerLink] ="'/GetPrevail'" > OES Data</a></span>
+                          <ul >
+                            <li *ngIf="Roles.includes('VPREVAIL')"role="presentation"  ><a    [routerLink] ="'/GetPrevail'" >Prewailing wages</a></li>
+                            <li *ngIf="Roles.includes('VGEOTIER')" role="presentation"  ><a    [routerLink] ="'/GetGeoTier'" >Geo tier</a></li>
+                            <li *ngIf="Roles.includes('VGEOSAL')" role="presentation"  ><a    [routerLink] ="'/ShowGeoSal'" >Geo Sal</a></li>
+                            <li *ngIf="Roles.includes('VSALSEL')" role="presentation"  ><a    [routerLink] ="'/ShowSalSelect'" >Salary select</a></li>
+                          </ul>
+                        </li>
+                        <li *ngIf="Roles.includes('VZIPCODE')" role="presentation"  ><a    [routerLink] ="'/ShowZip'" >Zip codes</a></li>
+                        <li *ngIf="Roles.includes('VSETALLW')" role="presentation"  ><a    [routerLink] ="'/ViewSettle'" >Settlement allowances</a></li>
+                        <li *ngIf="Roles.includes('VPAYDT')" role="presentation"  ><a    [routerLink] ="'/listPayrollDates'" >Payroll dates</a></li>
+                        <li *ngIf="Roles.includes('VSECTIND')" role="presentation"  ><a    [routerLink] ="'/listSectIndData'" >Sector-Industry</a></li>
+                        <li *ngIf="Roles.includes('VLETTEMP')" role="presentation"  ><a    [routerLink] ="'/viewLetterTemplates'" >Upload letter templates</a></li>
+                        <li *ngIf="Roles.includes('VHOLIDAY')" role="presentation"  ><a    [routerLink] ="'/listHolidayDates'" >Holiday list</a></li>
+                        <li *ngIf="Roles.includes('VSSTATE')" role="presentation"  ><a    [routerLink] ="'/viewSickStateList'" >Sick state details</a></li>
+                        <li *ngIf="Roles.includes('VCOUNT')" role="presentation"  ><a    [routerLink] ="'/viewcountryCodes'" >Country codes</a></li>
+                        <li *ngIf="Roles.includes('VFILEUP')" role="presentation"  ><a    [routerLink] ="'/uploadFilesHome'" >File uploads</a></li>
+                        <li *ngIf="Roles.includes('VSALPERC')" role="presentation"  ><a    [routerLink] ="'/SalRangePercentageHome'" >Salary percentage</a></li>
+                        
+                      </ul>
+                    </li>
+                   <ul>
+                   <li *ngIf="Roles.includes('VHELP')" role="presentation">
+                    <a [routerLink] = "'/help'"   >Help</a>
+                   </li>
+                 </ul>
+                </ul>
+          </div>
+        </nav>
+     
+     
+
+
+      <!-- <nav role="navigation" aria-label="__REPLACE_ME__">
+        <div id="ibm-navigation">
+            <ul id="ibm-primary-links" role="tree" aria-labelledby="ibm-pagetitle-h1"> 
+                <li role="presentation" id="ibm-overview"><a role="treeitem" href="####">IBM Software</a></li>
+                <li role="presentation"><a role="treeitem" href="####">Products</a></li>
+                <li role="presentation"><a aria-selected="true" role="treeitem" href="####">Services</a></li>
+                <li role="presentation"><span class="ibm-subnav-heading">Downloads</span>
+                    <ul>
+                        <li role="presentation"><a role="treeitem" href="####">All downloads</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Trials and demos</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">No-charge products and tools</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Updates, drivers, and fixes</a></li>
+                    </ul>
                 </li>
-                <li *ngIf="Roles.includes('VZIPCODE')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ShowZip'" >Zip codes</a></li>
-                <li *ngIf="Roles.includes('VSETALLW')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/ViewSettle'" >Settlement allowances</a></li>
-                <li *ngIf="Roles.includes('VPAYDT')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/listPayrollDates'" >Payroll dates</a></li>
-                <li *ngIf="Roles.includes('VSECTIND')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/listSectIndData'" >Sector-Industry</a></li>
-                <li *ngIf="Roles.includes('VLETTEMP')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewLetterTemplates'" >Upload letter templates</a></li>
-                <li *ngIf="Roles.includes('VHOLIDAY')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/listHolidayDates'" >Holiday list</a></li>
-                <li *ngIf="Roles.includes('VSSTATE')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewSickStateList'" >Sick state details</a></li>
-                <li *ngIf="Roles.includes('VCOUNT')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/viewcountryCodes'" >Country codes</a></li>
-                <li *ngIf="Roles.includes('VFILEUP')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/uploadFilesHome'" >File uploads</a></li>
-                <li *ngIf="Roles.includes('VSALPERC')" class="ds-nav-item" style="width: max-content;height: 40px;"><a class="ds-nav-link ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5" [routerLink] ="'/SalRangePercentageHome'" >Salary percentage</a></li>
-                
-              </ul>
-            </li>
-           <ul class="ds-nav-list ds-nav-top-level">
-           <li *ngIf="Roles.includes('VHELP')" class="ds-nav-item">
-            <a [routerLink] = "'/help'"  class="ds-nav-link ds-mar-b-0 ds-combo-parent ds-active  ds-text-contextual-blue-5" routerLinkActive="ds-text-contextual-blue-5">Help</a>
-           </li>
-         </ul>
-        </ul>
-     </div>
-    </div>
-  </div>
-</div>
-
-<!-- to view side navigation uncomment below code -->
-      <!-- <div class="ds-secondary-side-nav ds-single-toggle ds-no-border ds-col-xs-6 ds-no-gutter ds-no-border ds-mar-t-2 ds-mar-b-2 ds-pad-t-0_5 ds-pad-b-0_5" style="position:relative!important;overflow:hidden !important;width: max-content;">
-         <div   *ngIf="Roles.includes('site-home')"class="ds-nav-item"><a [routerLink] ="'/Home'" >Home</a>  </div>
-            <button class="ds-nav-item" aria-expanded="false" data-child="usLanded" *ngIf="Roles.includes('VUSASSC')">
-              <a [routerLink] = "'/viewHome'">US Landed</a> <span class="subnav-icon"></span>
-            </button>
-            <div class="ds-nav-section" id="usLanded">
-                <div  *ngIf="Roles.includes('VIBML')" class="ds-nav-sub-item "  ><a [routerLink] ="'/viewHcamContacts'" >US HCAM Contacts</a></div>
-                <div  *ngIf="Roles.includes('VIBMID')" class="ds-nav-sub-item " ><a [routerLink] ="'/viewEmpForms'"  >US HCAM employee forms</a></div>
-                <div  *ngIf="Roles.includes('VEMPINFO')" class="ds-nav-sub-item "><a [routerLink] ="'/viewEmpInfo'" >Employee info</a></div>
-                <div  *ngIf="Roles.includes('VDATAST')" class="ds-nav-sub-item "><a [routerLink] ="'/viewDataSheet'">Datasheet Input</a></div>
-                <div  *ngIf="Roles.includes('VSTATUS')" class="ds-nav-sub-item "><a [routerLink] ="'/viewNewChngeREq'">Employee Assignment Status</a></div>
-                <div  *ngIf="Roles.includes('VEASR')" class="ds-nav-sub-item "><a [routerLink] ="'/viewEmpAssignRes'">Employee Assignment Response</a></div>
-                <div  *ngIf="Roles.includes('VLEVREQ')" class="ds-nav-sub-item "> <a [routerLink] ="'/viewLeaveReq'">Leave Requests</a> </div>
-                <div  *ngIf="Roles.includes('VSLEAVE')" class="ds-nav-sub-item "> <a [routerLink] ="'/viewSickTime'">Track sick time</a> </div>
-             </div> 
-        
-             <button class="ds-nav-item" aria-expanded="false" data-child="compensation" *ngIf="Roles.includes('VCMPLST')">
-                <a [routerLink] = "'/compHome'">Compensation</a> <span class="subnav-icon"></span>
-             </button>
-            <div class="ds-nav-section" id="compensation">
-                <div  *ngIf="Roles.includes('VCMPLST')" class="ds-nav-sub-item "><a [routerLink] ="'/myCompRequest'" >My Comp Requests</a></div>
-                <div  *ngIf="Roles.includes('VALCMPHS')" class="ds-nav-sub-item "><a [routerLink] ="'/allCompHistory'"  >All Comp History</a></div>
-                <div  *ngIf="Roles.includes('VALREPTS')" class="ds-nav-sub-item "><a [routerLink] ="'/assignmentStatus'" >Assignment Status</a> </div>
-                <div  *ngIf="Roles.includes('VALLEVRQ')" class="ds-nav-sub-item "><a [routerLink] ="'/drLeaveRequest'">Leave Requests</a></div>
-            </div> 
-        
-            <div   *ngIf="Roles.includes('VCMSTLST')"class="ds-nav-item">
-              <a [routerLink] ="'/compensationListST'" >Staffing team</a> 
-            </div>
-
-            <button class="ds-nav-item" aria-expanded="false" data-child="hqOps" *ngIf="Roles.includes('VHQops')">
-              <a [routerLink] = "'/hqOps'">HqOps</a>  <span class="subnav-icon"></span>
-            </button>
-            <div class="ds-nav-section" id="hqOps">
-                <div  *ngIf="Roles.includes('VIMMGLST')" class="ds-nav-sub-item "  ><a [routerLink] ="'/Home'" >Immigration</a></div>
-
-                  <button class="ds-nav-item" aria-expanded="false"  data-child="allComp" *ngIf="Roles.includes('VCMTALL')" >
-                      <a [routerLink] ="'/allCompHistory'"  >All Comp Requests</a><span class="subnav-icon"></span>
-                  </button>
-
-                    <div class="ds-nav-section" id="allComp">
-                      <div  *ngIf="Roles.includes('VCMTLST')" class="ds-nav-sub-item "  ><a [routerLink] ="'/compHome'" >Compensation</a></div>
-                      <div  *ngIf="Roles.includes('VCMPPEND')" class="ds-nav-sub-item "> <a [routerLink] ="'/viewPendingAction'" >Pending action</a></div>
-                      <div  *ngIf="Roles.includes('COMPAPPR')" class="ds-nav-sub-item "> <a [routerLink] ="'/drLeaveRequest'">Approve comp</a></div>
-                      <div  *ngIf="Roles.includes('VCMPLCT')" class="ds-nav-sub-item "> <a [routerLink] ="'/viewLctTrnsfr'">Redeployment tracker</a></div>
-                      <div  *ngIf="Roles.includes('VONSITE')" class="ds-nav-sub-item "> <a [routerLink] ="'/viewOnsiteHire'">Onsite hire comp</a></div>
-                      <div  *ngIf="Roles.includes('VPROCES')" class="ds-nav-sub-item "> <a [routerLink] ="'/viewProcessRecord'">Immediate action</a> </div>
-                      <div  *ngIf="Roles.includes('VCMPMGR')" class="ds-nav-sub-item "><a [routerLink] ="'/compteamMngrView'">Manager action</a> </div>
-                      <div  *ngIf="Roles.includes('VCOMPDS')" class="ds-nav-sub-item "><a [routerLink] ="'/viewAllDataSheets'">Datasheet</a></div>
-                      <div  *ngIf="Roles.includes('VCMPVIEW')" class="ds-nav-sub-item "> <a [routerLink] ="'/compensationViews'">Comp views</a></div>
-                      <div  *ngIf="Roles.includes('VELCSIGN')" class="ds-nav-sub-item "><a [routerLink] ="'/electronicSignature'">Electronic signature</a></div>
-                      <div  *ngIf="Roles.includes('VEARH')" class="ds-nav-sub-item "><a [routerLink] ="'/empAssignResp'">Employee assignment response</a></div>
-                      <div  *ngIf="Roles.includes('VLCAINP')" class="ds-nav-sub-item "><a [routerLink] ="'/ViewH1BLCAExtension'">H1B extension LCA input</a></div>
-                      <div  *ngIf="Roles.includes('VRCOMPCL')" class="ds-nav-sub-item "><a [routerLink] ="'/relocCompChkListHome'">Redeployment completion checklist</a></div>
-                      <div  *ngIf="Roles.includes('ENDCLT')" class="ds-nav-sub-item "><a [routerLink] ="'/ViewEndClientDtl'">End client name</a> </div>
-                      <div  *ngIf="Roles.includes('NCOMPREQ')" class="ds-nav-sub-item "> <a [routerLink] ="'/listCompReqCtdByCS'">Raise comp request</a></div>
-                    </div> 
-             </div>
-
-        </div> -->
-        
+                <li role="presentation"><span class="ibm-subnav-heading">Library</span>
+                    <ul>
+                        <li role="presentation"><a role="treeitem" href="####">All publications</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Announcements</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Brief</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Brochures</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Case studies</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Data sheets</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Information center</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Redbooks</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Release notes</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">Tutorial</a></li>
+                        <li role="presentation"><a role="treeitem" href="####">White papers</a></li>
+                    </ul>
+                </li>
+                <li role="presentation"><a role="treeitem" href="####">News</a></li>
+                <li role="presentation"><a role="treeitem" href="####">Training and certification</a></li>
+                <li role="presentation"><a role="treeitem" href="####">Events</a></li>
+                <li role="presentation"><a role="treeitem" href="####">Support</a></li>
+            </ul>
+        </div>    
+    </nav> -->

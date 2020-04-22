@@ -7,13 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./privacy-notice.component.css']
 })
 export class PrivacyNoticeComponent implements OnInit {
-
+  
+  
   constructor(private router:Router ) {}
 
   ngOnInit(): void {
   }
 
   privacyNotice(){
+    
+    sessionStorage.setItem("isNavigate","true");
     this.router.navigate(['/Home']);
   }
 }

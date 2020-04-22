@@ -1,23 +1,12 @@
- 
-<div class="ds-row ds-pad-l-1 ds-mar-t-1" >
-    <div class="ds-col-12">
-        <h2 class="ds-text-contextual-blue-5"> Onboard Tracking</h2>
+ <div class="col-12-10" >
+    <div>
+        <p style="color: cornflowerblue;"> Onboard Tracking</p>
     </div>
    
-    <div class="ds-row">
-        <div class="ds-col-11 ds-mar-b-1 ">
-        <button data-element="accordion-example-1" class="ds-clickable ds-expand-all-trigger ds-text-small ds-float-right ds-text-contextual-blue-5" id="toggle-example-1" tabindex="0" role="button" style="border: none; background: none;">
-        </button>
-        </div>
-    </div>
-    <div class="ds-accordion-container ds-expand-all ds-mar-t-0 ds-mar-b-2" id="accordion-example-1" aria-label=" Expand All ">
-              <div class="ds-accordion-container ds-mar-t-0 ds-mar-b-0 ds-no-border">
-                  <div id="onboardaccordian" class="ds-row ds-accordion-item" aria-controls="ds-accordion-slidedown" aria-expanded="false" role="accordion item" style="background-color: transparent;">
-                      <button class="ds-accordion-title ds-text-contextual-blue-5">Onboarding</button>
-                          <div class="ds-accordion-slidedown" aria-hidden="true" role="region" style="background-color: transparent;">
-                                <div class="ds-table-container" style="overflow:hidden;">
-                                  <p> <b>{{onboardList.length}} </b>of entries </p>
-                                  <table  class="ds-table ds-table-compact ds-striped ds-hover ds-text-small" >
+    <div >
+        <h3 style="color: cornflowerblue;"> Onboarding</h3>
+    </div>                          
+    <table id="onboardingTable" data-widget="datatable" data-ordering="true" data-paging="true" data-searching="true" class="ibm-data-table">
                                     <thead>
                                         <tr>
                                             <th >Last Name</th>
@@ -35,7 +24,7 @@
                                         </tr>
                                     </thead>
                                     
-                                    <tbody *ngFor = "let bean of onboardList | paginate:{id:'oblist',itemsPerPage: 8, currentPage:p}">
+                                    <tbody *ngFor = "let bean of onboardList ">
                                         <tr>
                                             <td><a [routerLink]="['/viewOnboardRecord', bean.empId]">{{bean.empLastName}}</a></td>
                                             <td>{{bean.empFistName}}</td>
@@ -52,23 +41,11 @@
                                         </tr>
 
                                     </tbody>
+   
                                     
                                 </table>
-
-                                <pagination-controls id='oblist' autoHide="true" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
-                                 (pageChange)="p=$event" class="ds-float-right" ></pagination-controls>
-                                
- 
-                                <div>
-                                   Export Options : <span class="ds-icon-download">Excel</span>
-                                </div>
-                            </div>
-                
-                     </div>
-                 </div>
-             </div>
-
-            <div class="ds-accordion-container ds-mar-t-0 ds-mar-b-0 ds-no-border">
+</div>
+            <!-- <div class="ds-accordion-container ds-mar-t-0 ds-mar-b-0 ds-no-border">
                 <div class="ds-row ds-accordion-item" aria-controls="ds-accordion-slidedown" aria-expanded="false" role="accordion item" style="background-color: transparent;">
                     <button class="ds-accordion-title ds-text-contextual-blue-5">Pending Landed</button>
                         <div class="ds-accordion-slidedown" aria-hidden="true" role="region" style="background-color: transparent;">
@@ -170,5 +147,4 @@
                         </div>
                 </div>
             </div>
-        </div>
-</div>
+        </div> -->

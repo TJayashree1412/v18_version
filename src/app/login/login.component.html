@@ -1,38 +1,37 @@
-        <div class="ds-table-container">
+        <!-- <div>
             <table width = "100%" class="ds-table " height = "100%">
                <tr>
-                 <td width ="50%">
-                   <img class="logo" src="assets/onboarding.jpg">
-                   </td>
                    <td width ="50%">
-                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="ds-affix-bottom">
-                        <table class="ds-table  ds-no-border" width ="100%" >
-                          <tr>
-                            <td>
-                              <img class="logo" src="assets/offboarding.png">
-                            </td>
-                          </tr>
+                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="ibm-column-form">
+                        <table style="width:100px" >
                        <tr>
                          <td width ="40%">
-                              <input type="text" class="ds-button ds-basic" formControlName="userName"
-                              placeholder="Email">
+                          <label class="ibm-column-field-label">Email: <span class="ibm-required">*</span></label>
+                          <span>
+                              <input type="text" value="" size="40" formControlName="userName" placeholder="Ex: Joes@in.ibm.com">
+                          </span>
                           </td>
-                          <td width ="60%"></td>
+                         
                          </tr>
+                         <tr></tr>
+                        
+                         <br/>
                       <tr><td>
-                          <input type="password" class="ds-button ds-basic" formControlName="password"
+                        <label class="ibm-column-field-label">Password: <span class="ibm-required">*</span></label>
+                          <input type="password" size="40"  formControlName="password"
                             placeholder="Password">
                             <div class="ds-col-5">  <span id="pwdHelp" class="ds-input-label"><a href="https://w3.ibm.com/password">Forgot password?</a> </span></div>
                             
                       </td>
                     <td></td></tr>
-                       <!-- <div class="ds-button ds-width-auto"> -->
                         <tr><td>
                           <table>
                             <tr><td>
-                         <button class="ds-button ds-width-auto ds-text-align-justify" type="submit"
-                           [disabled]="!loginForm.valid">Login</button> </td>
-                           <td><button class="ds-button ds-danger ds-width-auto ds-text-align-justify">Reset</button></td>
+                              <button class="ibm-btn-pri ibm-btn-blue-50" type="submit" [disabled]="!loginForm.valid">Login</button>
+                         </td>
+                       <td></td>
+                       <td></td>
+                           <td><button  class="ibm-btn-pri ibm-btn-red-50">Reset</button></td>
                           </tr>
                           </table>
                           </td>
@@ -43,8 +42,69 @@
                    </td>
                  </tr>
                <!-- </tbody> -->
-             </table>
-           </div>
+             <!-- </table>
+           </div> -->
      
-     
-     
+           <body>
+            <div class="login_image ">
+              <div class="main">
+                <div role="main" class="ibm-content">
+                  <div class="ibm-content-body">
+                    <div class="ibm-content-main">
+                      <div class="ibm-fluid login">
+                        <div class="form-container">
+                          <h1 class="form-heading ibm-h1 ">
+                            <!-- Seat Management Tool(SMT) -->
+                            <!-- </span> -->
+                          </h1>
+                          <div class="ibm-flex">
+                          
+                            <div class="ibm-col-12-6">
+                              <div class="ibm-card " style="vertical-align: middle; margin-top: 50px;">
+                              <div class="ibm-card__content ibm-padding-border-left" >
+                              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="ibm-row-form">
+                               
+                                <!-- <p class="inputContainer " >  -->
+                                <label for="username"><span style="color: #4178BE; font-size: 1.3em;">
+                                  <b>Id</b></span> </label> <input tabindex="1" id="name" formControlName="userName" placeholder="Ex: Joes@in.ibm.com"
+                                    type="text" style=" width: 350px;">
+                                <!-- </p> -->
+                                <br/>
+                                <br/>
+                                <!-- <p class="password-span" style="margin-top: -5px; margin-left: 221px">  -->
+                                   <span >  
+                                   
+                                    <label for="password"><span style="color: #4178BE; font-size: 1.3em;"><b>Password</b></span>
+                                  </label> 
+                                  <input tabindex="1" id="password" formControlName="password" type="password" style="width: 350px;">
+                                  <br/>
+                                  <span id="pwdHelp" ><a href="https://w3.ibm.com/password">Forgot password?</a> </span>
+                                
+                                    <div class="button-container full-width ibm-fluid">
+                                      <div class=" vertical-middle" style="margin-left: 200px"><br>
+                                        <button id="signinbutton" 
+                                          tabindex="1" type="submit"  [disabled]="!loginForm.valid" class="ibm-btn-pri ibm-btn-blue-50">
+                                          <span>Sign in</span>
+                                        </button>
+                                      </div>
+                                    </div></span>
+                                    <div>
+                                    <br />
+                                    
+                                    </div>
+
+                              </form>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </body>
+          
+    

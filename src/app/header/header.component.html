@@ -1,8 +1,12 @@
-<div class="ds-row">
-    <h1 class="ds-heading-2 ds-col-7 ds-mar-t-1 ds-mar-b-0 ds-text-neutral-1 ds-float-center ds-text-align-justify" style="vertical-align: center;"> US Host Country Assignment Model</h1>
-    <div class="ds-col-4 ds-mar-t-1 ds-text-neutral-1 ds-text-align-right" *ngIf="isUserAuthenticated()" > 
-        <img  style="height: 30px;width: 30px; "src="{{profilePic}}"  class="ds-img-circle hp-signin-img"><span> </span>
-    <b> {{username}} </b></div>
-    <div class="ds-col-1 ds-mar-t-1 ds-clickable ds-text-neutral-1 ds-mar-b-0 ds-float-right ds-text-align-center" *ngIf="isUserAuthenticated()"  (click)="SignOut()" >
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<div class="ibm-row">
+    <h1 class= "ibm-h2 ibm-vertical-center" style="background-color:#121212;height: 50px;font-weight: normal;color: white;"> US Host Country Assignment Model
+    <div style="margin-left: 1000px;" *ngIf="isUserAuthenticated()" > 
+        <img  style="height: 30px;width: 30px;margin-top: 20px; "src="{{profilePic}}"  class="ds-img-circle hp-signin-img"><span style="margin-top: 20px;"> 
+    <b> {{username}} </b></span></div> 
+    <div *ngIf="isUserAuthenticated()" style="margin-left: 100px;margin-top: 25px;" (click)="SignOut()" >
         <span style="font-size: 25px;">   <i class="fas fa-sign-out-alt" title="Sign Out"></i> </span></div>
+
+    </h1>
 </div>

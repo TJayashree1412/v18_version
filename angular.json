@@ -26,9 +26,6 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css"
-            ],
-            "scripts": [
-            "src/assets/w3ds-6.0.8/w3ds.js"
             ]
           },
           "configurations": {

@@ -1,7 +1,7 @@
 
-        <div class="ds-panel ds-no-border ds-fullwidth ds-mar-b-10">
-            <div class="ds-row">
-                <div  *ngIf="isUserAuthenticated()" class="ds-col-sm-2 ds-col-md-2 ds-col-xl-2">
+        <div >
+            <div >
+                <div  *ngIf="isNavigated()" class="ibm-col-12-2">
                     <app-navigation></app-navigation>
                 </div>
             <router-outlet></router-outlet>

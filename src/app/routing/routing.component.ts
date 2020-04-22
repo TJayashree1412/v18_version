@@ -12,9 +12,9 @@ export class RoutingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  isUserAuthenticated(): boolean{
-    console.log("sessionStorage.getItem(isAuthenticated)" ,sessionStorage.getItem("isAuthenticated") )
-    if (sessionStorage.getItem("isAuthenticated") === "true") {      
+  isNavigated(): boolean{
+    console.log("sessionStorage.getItem(isNavigate)" ,sessionStorage.getItem("isNavigate") )
+    if (sessionStorage.getItem("isNavigate") === "true") {      
       return true;      
       } else{
         return false;

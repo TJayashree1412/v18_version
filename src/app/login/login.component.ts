@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit() {
-    console.log("Username: "+this.loginForm.value.userName)
     this.errorMessage='';
     let getdata = await this.dataservice.authenticate(this.loginForm.value.userName,this.loginForm.value.password);
     console.log("getdata:"+JSON.stringify(getdata));
@@ -37,7 +36,6 @@ export class LoginComponent implements OnInit {
      sessionStorage.setItem('userdata',JSON.stringify(getdata));
      sessionStorage.setItem('isAuthenticated',"true");
     this.router.navigate(['/privacyNotice']);
-     console.log("User Data: "+sessionStorage.getItem("userdata"));
   
     this.errorMessage='Incorrect IntranetID or Password';
     this.loginFailure=true;

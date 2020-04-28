@@ -16,11 +16,13 @@ export class OnboardingListComponent implements OnInit {
   onboardList :any []=[];
   pendingLandedList : Onboard[] = [];
   esignAwaitingList : Onboard[] = [];
+  empId : String;
   
   
   constructor (public onboardingService: OnboardingService ) {}
 
   ngOnInit() {
+   
       this.getOnboardedList();
       // this.getPendingLandedList();
       // this.getEmpSignAwaitingList();
@@ -28,29 +30,35 @@ export class OnboardingListComponent implements OnInit {
     }
     
 
-    getOnboardedList() {
+    async getOnboardedList() {
       this.onboardingService.getOnboardedList()
+      
         .subscribe(resp => {
-          console.log(resp);
-          // for (const data of resp.body) {
-          //   this.onboardList.push(data);
-          // }
           this.onboardList = resp.body
-          console.log(this.onboardList);
+        
+          jQuery('#onboardingTable').dataTable().fnDestroy();
 		 } , (error: any) => {
-                    console.log(error, 'error');
-                },
+           console.log(error, 'error');
+     },
            async () => {
           setTimeout(() => {
-       //       jQuery("onboardingTable_filter input").attr("placeholder", "Type here");
+              jQuery("onboardingTable_filter input").attr("placeholder", "Type here");
+            
+             
           }, 100);
-		    await this.delay(1);
-       //   IBMCore.common.widget.datatable.init('#onboardingTable');
+          console.log("before widget")
+          IBMCore.common.widget.datatable.init('#onboardingTable');
+         console.log("after widget")
+        
+        await this.delay(1);
+       
+         
         });
       }
     
 	     delay(ms: number) {
       return new Promise(resolve => setTimeout(resolve, ms));
+      
   }
 
 
@@ -78,6 +86,11 @@ export class OnboardingListComponent implements OnInit {
           }
           console.log(this.esignAwaitingList);
         });
+    }
+
+    onViewClick(empId){
+      this.empId = empId;
+      IBMCore.common.widget.overlay.show('onboardOverlay')
     }
      
   }

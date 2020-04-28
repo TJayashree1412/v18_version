@@ -14,12 +14,8 @@ export class HeaderComponent implements OnInit {
   constructor(private router:Router ) {}
 
   ngOnInit() {
-   
-    console.log("sessionStorage.getItem(loggeduser)"+sessionStorage.getItem("loggeduser"));
-    let user = sessionStorage.getItem("loggeduser");
-    console.log("user is :::" ,user);
+   let user = sessionStorage.getItem("loggeduser");
     this.username = user;
-    console.log(this.username);
     this.profilePic="https://w3-services1.w3-969.ibm.com/myw3/unified-profile-photo/v1/image/"+sessionStorage.getItem("loggeduser");
   }
   SignOut(){
@@ -28,7 +24,6 @@ export class HeaderComponent implements OnInit {
   }
 
   isUserAuthenticated(): boolean{
-    console.log("sessionStorage.getItem(isAuthenticated)" ,sessionStorage.getItem("isAuthenticated") )
     if (sessionStorage.getItem("isAuthenticated") === "true") {      
       return true;      
       } else{

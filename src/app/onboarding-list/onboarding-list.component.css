@@ -1,9 +1,14 @@
-table tbody tr td{
-    font-size: x-small;
-}
+ table tbody tr td{
+    font-size: smaller;
+    border-right:black;
+    border-left:none;
+    border-top: none;
+    border-bottom-color: black; 
+ }
 table thead tr th{
     font-size: small;
     background-color: lightskyblue;
-    font-style: normal;
-}
+   
+    
+} 
 

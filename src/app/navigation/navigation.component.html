@@ -1,132 +1,128 @@
+<nav role="navigation" aria-label="">
+  <div id="ibm-navigation"  >
+    <ul id="ibm-primary-links" role="tree" aria-labelledby="ibm-pagetitle-h1"> 
+      <li  *ngIf="Roles.includes('site-home')" role="presentation" ><a role="treeitem" [routerLink] = "'/Home'">Home</a></li>
+        <li *ngIf="Roles.includes('VUSASSC')"  role="presentation"><span class="ibm-subnav-heading">
+          <a [routerLink] = "'/viewHome'" id="usLanded" >US Landed</a></span>
+            <ul>
+              <li *ngIf="Roles.includes('VIBML')" ><a  [routerLink] ="'/myCompRequest'" >US HCAM contacts</a></li>
+              <li *ngIf="Roles.includes('VIBMID')"><a  [routerLink] ="'/allCompHistory'">US HCAM Employee forms</a></li>
+              <li *ngIf="Roles.includes('VEMPINFO')"><a   [routerLink] ="'/assignmentStatus'">Employee info</a></li>
+              <li *ngIf="Roles.includes('VDATAST')" ><a  [routerLink] ="'/drLeaveRequest'">Datasheet input</a></li>
+              <li *ngIf="Roles.includes('VSTATUS')" ><a  [routerLink] ="'/myCompRequest'" >Employee assignment status</a></li>
+              <li *ngIf="Roles.includes('VEASR')" ><a [routerLink] ="'/allCompHistory'">AEmployee assignment response</a></li>
+              <li *ngIf="Roles.includes('VLEVREQ')"  ><a  [routerLink] ="'/assignmentStatus'">Leave requests</a></li>
+              <li *ngIf="Roles.includes('VSLEAVE')"  ><a  [routerLink] ="'/drLeaveRequest'">Track sick time</a></li>
+            </ul>
+        </li>
 
-        <nav role="navigation" aria-label="">
-          <div id="ibm-navigation"  >
-              <ul id="ibm-primary-links" role="tree" aria-labelledby="ibm-pagetitle-h1"> 
-                  <li  *ngIf="Roles.includes('site-home')" role="presentation" ><a role="treeitem" [routerLink] = "'/Home'">Home</a></li>
+        <li *ngIf="Roles.includes('VCMPLST')" class="ds-nav-item" >
+          <a [routerLink] = "'/compHome'"  id="compensation" >Compensation</a>
+            <ul>
+              <li  *ngIf="Roles.includes('VCMPLST')"  ><a  [routerLink] ="'/myCompRequest'" >My Comp Request</a></li>
+              <li *ngIf="Roles.includes('VALCMPHS')" ><a [routerLink] ="'/allCompHistory'">All Comp History</a></li>
+              <li *ngIf="Roles.includes('VALREPTS')" ><a  [routerLink] ="'/assignmentStatus'">Assignment Status</a></li>
+              <li *ngIf="Roles.includes('VALLEVRQ')" ><a  [routerLink] ="'/drLeaveRequest'">Leave Request</a></li>
+            </ul>
+        </li>
                   
-                  <li *ngIf="Roles.includes('VUSASSC')"  role="presentation"><span class="ibm-subnav-heading">
-                    <a [routerLink] = "'/viewHome'" id="usLanded" >US Landed</a></span>
-                      <ul>
-                        <li *ngIf="Roles.includes('VIBML')" ><a  [routerLink] ="'/myCompRequest'" >US HCAM contacts</a></li>
-                        <li *ngIf="Roles.includes('VIBMID')"><a  [routerLink] ="'/allCompHistory'">US HCAM Employee forms</a></li>
-                        <li *ngIf="Roles.includes('VEMPINFO')"><a   [routerLink] ="'/assignmentStatus'">Employee info</a></li>
-                        <li *ngIf="Roles.includes('VDATAST')" ><a  [routerLink] ="'/drLeaveRequest'">Datasheet input</a></li>
-                        <li *ngIf="Roles.includes('VSTATUS')" ><a  [routerLink] ="'/myCompRequest'" >Employee assignment status</a></li>
-                        <li *ngIf="Roles.includes('VEASR')" ><a [routerLink] ="'/allCompHistory'">AEmployee assignment response</a></li>
-                        <li *ngIf="Roles.includes('VLEVREQ')"  ><a  [routerLink] ="'/assignmentStatus'">Leave requests</a></li>
-                        <li *ngIf="Roles.includes('VSLEAVE')"  ><a  [routerLink] ="'/drLeaveRequest'">Track sick time</a></li>
-                     </ul>
-                    </li>
-
-                    <li *ngIf="Roles.includes('VCMPLST')" class="ds-nav-item" >
-                      <a [routerLink] = "'/compHome'"  id="compensation" >Compensation</a>
-                        <ul >
-                          <li  *ngIf="Roles.includes('VCMPLST')"  ><a  [routerLink] ="'/myCompRequest'" >My Comp Request</a></li>
-                          <li *ngIf="Roles.includes('VALCMPHS')" ><a [routerLink] ="'/allCompHistory'">All Comp History</a></li>
-                          <li *ngIf="Roles.includes('VALREPTS')" ><a  [routerLink] ="'/assignmentStatus'">Assignment Status</a></li>
-                          <li *ngIf="Roles.includes('VALLEVRQ')" ><a  [routerLink] ="'/drLeaveRequest'">Leave Request</a></li>
-                        </ul>
-                    </li>
-                  <li *ngIf="Roles.includes('VCMSTLST')"   role="presentation">
-                    <a [routerLink] = "'/compensationListST'"  >Staffing Team</a>
-                  </li>
+        <li *ngIf="Roles.includes('VCMSTLST')"   role="presentation">
+          <a [routerLink] = "'/compensationListST'"  >Staffing Team</a>
+        </li>
         
-                  <li *ngIf="Roles.includes('VHQops')"  role="presentation"><span class="ibm-subnav-heading">
-                    
-                    <a [routerLink] = "'/hqOps'"  id="HQops" >HQ Ops</a></span>
-                      <ul>
-                        <li *ngIf="Roles.includes('VIMMGLST')"    ><a [routerLink] ="'/Home'" >Immigration</a></li>   
-                        <li *ngIf="Roles.includes('VCMTALL')" id="allCompReq"    > <span class="ibm-subnav-heading"><a   [routerLink] ="'/allCompRequest'">All Comp Requests</a></span>
-                             <ul >
-                               <li *ngIf="Roles.includes('VCMTLST')"role="presentation"  ><a  role="treeitem"  [routerLink] ="'/compHome'" >Compensation</a></li>
-                               <li *ngIf="Roles.includes('VCMPPEND')" role="presentation"  ><a    [routerLink] ="'/viewPendingAction'" >Pending action</a></li>
-                               <li *ngIf="Roles.includes('COMPAPPR')" role="presentation"  ><a    [routerLink] ="'/viewApprvpending'" >Approve comp</a></li>
-                               <li *ngIf="Roles.includes('VCMPLCT')" role="presentation"  ><a    [routerLink] ="'/viewLctTrnsfr'" >Redeployment tracker</a></li>
-                               <li *ngIf="Roles.includes('VONSITE')" role="presentation"  ><a    [routerLink] ="'/viewOnsiteHire'" >Onsite hire comp</a></li>
-                               <li *ngIf="Roles.includes('VPROCES')" role="presentation"  ><a    [routerLink] ="'/viewProcessRecord'" >Immediate action</a></li>
-                               <li *ngIf="Roles.includes('VCMPMGR')" role="presentation"   ><a    [routerLink] ="'/compteamMngrView'" >Manager action</a></li>
-                               <li *ngIf="Roles.includes('VCOMPDS')" role="presentation"   ><a    [routerLink] ="'/viewAllDataSheets'" >Data sheets</a></li>
-                               <li *ngIf="Roles.includes('VCMPVIEW')" role="presentation"   ><a    [routerLink] ="'/compensationViews'" >Comp views</a></li>
-                               <li *ngIf="Roles.includes('VELCSIGN')" role="presentation"   ><a    [routerLink] ="'/electronicSignature'" >Electronic signature</a></li>
-                               <li *ngIf="Roles.includes('VEARH')" role="presentation"   ><a    [routerLink] ="'/empAssignResp'" >Employee assignment response</a></li>
-                               <li *ngIf="Roles.includes('VLCAINP')" role="presentation"   ><a    [routerLink] ="'/ViewH1BLCAExtension'" >H1B extension LCA input </a></li>
-                               <li *ngIf="Roles.includes('VRCOMPCL')" role="presentation"   ><a    [routerLink] ="'/relocCompChkListHome'" >Redeployment completion check list</a></li>
-                               <li *ngIf="Roles.includes('ENDCLT')" role="presentation"   ><a    [routerLink] ="'/ViewEndClientDtl'" >End client name</a></li>
-                               <li *ngIf="Roles.includes('NCOMPREQ')" role="presentation"   ><a    [routerLink] ="'/listCompReqCtdByCS'" >Raise compensation request</a></li>
-                             </ul>
-                            </li>
-                  <li *ngIf="Roles.includes('VOBLIST')" role="presentation"><span class="ibm-subnav-heading">
-                    <a  id="onboarding" [routerLink] ="'/onboardingList'"> onboarding</a></span>
-                      <ul >
-                        <li *ngIf="Roles.includes('OBAPPR')" role="presentation"  ><a    [routerLink] ="'/obApprover'" >Onboarding Approver</a></li>
-                        <li *ngIf="Roles.includes('VOBVIEW')" role="presentation"  ><a    [routerLink] ="'/onboaringViews'" >Onboarding views </a></li>
-                        <li *ngIf="Roles.includes('VGENVIEW')" role="presentation"  ><a    [routerLink] ="'/generalViews'" >General views</a></li>
-                        <li *ngIf="Roles.includes('VOBREP')" role="presentation"  ><a    [routerLink] ="'/onboardReports'" >Onboard Reports</a></li>
-                        <li *ngIf="Roles.includes('FMLAAPPR')" role="presentation"  ><a    [routerLink] ="'/fmlaView'" >FMLA Approver</a></li>
-                      </ul>
-                   </li>
-        
-                   <li *ngIf="Roles.includes('VOBADM')" role="presentation"><span class="ibm-subnav-heading">
-                    <a id="onboarding" [routerLink] ="'/obAdmin'">OB Admin</a></span>
-                      <ul >
-                        <li *ngIf="Roles.includes('VNBLSTOB')" role="presentation"><a  [routerLink] ="'/ViewOBNB'" >Notice board</a></li>
-                        <li *ngIf="Roles.includes('VDOCSOB')" role="presentation" ><a    [routerLink] ="'/ViewOBDoc'" >Documents </a></li>
-                        <li *ngIf="Roles.includes('VOBLTEMP')" role="presentation" ><a    [routerLink] ="'/viewLetterTemplates'" >Letter templates</a></li>
-                        <li *ngIf="Roles.includes('VHLPCNT')" role="presentation" ><a    [routerLink] ="'/helpContent'" >Help content</a></li>
-                       
-                      </ul>
-                   </li>
-                  <li *ngIf="Roles.includes('VPROCLST')" role="presentation">
-                    <a [routerLink] = "'/Home'">Procurement</a>
-                  </li>
+        <li *ngIf="Roles.includes('VHQops')"  role="presentation"><span class="ibm-subnav-heading">
+          <a [routerLink] = "'/hqOps'"  id="HQops" >HQ Ops</a></span>
+             <ul>
+              <li *ngIf="Roles.includes('VIMMGLST')"    ><a [routerLink] ="'/Home'" >Immigration</a></li>   
+              <li *ngIf="Roles.includes('VCMTALL')" id="allCompReq"    > <span class="ibm-subnav-heading"><a   [routerLink] ="'/allCompRequest'">All Comp Requests</a></span>
+                <ul>
+                  <li *ngIf="Roles.includes('VCMTLST')"role="presentation"  ><a  role="treeitem"  [routerLink] ="'/compHome'" >Compensation</a></li>
+                  <li *ngIf="Roles.includes('VCMPPEND')" role="presentation"  ><a    [routerLink] ="'/viewPendingAction'" >Pending action</a></li>
+                  <li *ngIf="Roles.includes('COMPAPPR')" role="presentation"  ><a    [routerLink] ="'/viewApprvpending'" >Approve comp</a></li>
+                  <li *ngIf="Roles.includes('VCMPLCT')" role="presentation"  ><a    [routerLink] ="'/viewLctTrnsfr'" >Redeployment tracker</a></li>
+                  <li *ngIf="Roles.includes('VONSITE')" role="presentation"  ><a    [routerLink] ="'/viewOnsiteHire'" >Onsite hire comp</a></li>
+                  <li *ngIf="Roles.includes('VPROCES')" role="presentation"  ><a    [routerLink] ="'/viewProcessRecord'" >Immediate action</a></li>
+                  <li *ngIf="Roles.includes('VCMPMGR')" role="presentation"   ><a    [routerLink] ="'/compteamMngrView'" >Manager action</a></li>
+                  <li *ngIf="Roles.includes('VCOMPDS')" role="presentation"   ><a    [routerLink] ="'/viewAllDataSheets'" >Data sheets</a></li>
+                  <li *ngIf="Roles.includes('VCMPVIEW')" role="presentation"   ><a    [routerLink] ="'/compensationViews'" >Comp views</a></li>
+                  <li *ngIf="Roles.includes('VELCSIGN')" role="presentation"   ><a    [routerLink] ="'/electronicSignature'" >Electronic signature</a></li>
+                  <li *ngIf="Roles.includes('VEARH')" role="presentation"   ><a    [routerLink] ="'/empAssignResp'" >Employee assignment response</a></li>
+                  <li *ngIf="Roles.includes('VLCAINP')" role="presentation"   ><a    [routerLink] ="'/ViewH1BLCAExtension'" >H1B extension LCA input </a></li>
+                  <li *ngIf="Roles.includes('VRCOMPCL')" role="presentation"   ><a    [routerLink] ="'/relocCompChkListHome'" >Redeployment completion check list</a></li>
+                  <li *ngIf="Roles.includes('ENDCLT')" role="presentation"   ><a    [routerLink] ="'/ViewEndClientDtl'" >End client name</a></li>
+                  <li *ngIf="Roles.includes('NCOMPREQ')" role="presentation"   ><a    [routerLink] ="'/listCompReqCtdByCS'" >Raise compensation request</a></li>
                 </ul>
-                  </li>
-                  <li *ngIf="Roles.includes('VTRALIST')" role="presentation"><span class="ibm-subnav-heading">
-                    <a [routerLink] = "'/immigration'"  id="travelList" >Immigration</a></span>
-                      <ul >
-                        <li *ngIf="Roles.includes('VPLLIST')" role="presentation"  ><a    [routerLink] ="'/preLandingList'" >Pre-Landing List</a></li>
-                        <li *ngIf="Roles.includes('VIMREP')" role="presentation"><a    [routerLink] ="'/immReportsHome'" >Immigration reports </a></li>
-                      </ul>
-                  </li>
+              </li>
+               <li *ngIf="Roles.includes('VOBLIST')" role="presentation"><span class="ibm-subnav-heading">
+                 <a  id="onboarding" [routerLink] ="'/onboardingList'"> onboarding</a></span>
+                  <ul>
+                    <li *ngIf="Roles.includes('OBAPPR')" role="presentation"  ><a    [routerLink] ="'/obApprover'" >Onboarding Approver</a></li>
+                    <li *ngIf="Roles.includes('VOBVIEW')" role="presentation"  ><a    [routerLink] ="'/onboaringViews'" >Onboarding views </a></li>
+                    <li *ngIf="Roles.includes('VGENVIEW')" role="presentation"  ><a    [routerLink] ="'/generalViews'" >General views</a></li>
+                    <li *ngIf="Roles.includes('VOBREP')" role="presentation"  ><a    [routerLink] ="'/onboardReports'" >Onboard Reports</a></li>
+                    <li *ngIf="Roles.includes('FMLAAPPR')" role="presentation"  ><a    [routerLink] ="'/fmlaView'" >FMLA Approver</a></li>
+                  </ul>
+                </li>
         
-                  <li *ngIf="Roles.includes('VAPPDOCS')" role="presentation">
-                    <a [routerLink] = "'/ViewAppDocs'" >Documents</a>
-                   </li>
-        
-                   <li *ngIf="Roles.includes('VADMHM')"   ><span class="ibm-subnav-heading">
-                    <a   id="onboarding" [routerLink] ="'/admHome'">Administrator</a></span>
-                      <ul >
-                        <li *ngIf="Roles.includes('VPARLIST')" role="presentation" ><a    [routerLink] ="'/ViewParam'" >Parameters</a></li>
-                        <li *ngIf="Roles.includes('VIBMIC')" role="presentation"  ><a    [routerLink] ="'/ViewIBMI'" >US HCAM Contacts </a></li>
-                        <li *ngIf="Roles.includes('VUSACLST')" role="presentation"  ><a    [routerLink] ="'/ViewAcnt'" >US account contacts</a></li>
-                        <li *ngIf="Roles.includes('VNBD')" role="presentation"  ><a    [routerLink] ="'/ViewNB'" >Notice board</a></li>
-                        <li *ngIf="Roles.includes('VDOCSADM')" role="presentation"  ><a    [routerLink] ="'/ViewDoc'" >Documents</a></li>
-                        <li *ngIf="Roles.includes('VOESDATA')" role="presentation"    ><span class="ibm-subnav-heading"><a    [routerLink] ="'/GetPrevail'" > OES Data</a></span>
-                          <ul >
-                            <li *ngIf="Roles.includes('VPREVAIL')"role="presentation"  ><a    [routerLink] ="'/GetPrevail'" >Prewailing wages</a></li>
-                            <li *ngIf="Roles.includes('VGEOTIER')" role="presentation"  ><a    [routerLink] ="'/GetGeoTier'" >Geo tier</a></li>
-                            <li *ngIf="Roles.includes('VGEOSAL')" role="presentation"  ><a    [routerLink] ="'/ShowGeoSal'" >Geo Sal</a></li>
-                            <li *ngIf="Roles.includes('VSALSEL')" role="presentation"  ><a    [routerLink] ="'/ShowSalSelect'" >Salary select</a></li>
-                          </ul>
-                        </li>
-                        <li *ngIf="Roles.includes('VZIPCODE')" role="presentation"  ><a    [routerLink] ="'/ShowZip'" >Zip codes</a></li>
-                        <li *ngIf="Roles.includes('VSETALLW')" role="presentation"  ><a    [routerLink] ="'/ViewSettle'" >Settlement allowances</a></li>
-                        <li *ngIf="Roles.includes('VPAYDT')" role="presentation"  ><a    [routerLink] ="'/listPayrollDates'" >Payroll dates</a></li>
-                        <li *ngIf="Roles.includes('VSECTIND')" role="presentation"  ><a    [routerLink] ="'/listSectIndData'" >Sector-Industry</a></li>
-                        <li *ngIf="Roles.includes('VLETTEMP')" role="presentation"  ><a    [routerLink] ="'/viewLetterTemplates'" >Upload letter templates</a></li>
-                        <li *ngIf="Roles.includes('VHOLIDAY')" role="presentation"  ><a    [routerLink] ="'/listHolidayDates'" >Holiday list</a></li>
-                        <li *ngIf="Roles.includes('VSSTATE')" role="presentation"  ><a    [routerLink] ="'/viewSickStateList'" >Sick state details</a></li>
-                        <li *ngIf="Roles.includes('VCOUNT')" role="presentation"  ><a    [routerLink] ="'/viewcountryCodes'" >Country codes</a></li>
-                        <li *ngIf="Roles.includes('VFILEUP')" role="presentation"  ><a    [routerLink] ="'/uploadFilesHome'" >File uploads</a></li>
-                        <li *ngIf="Roles.includes('VSALPERC')" role="presentation"  ><a    [routerLink] ="'/SalRangePercentageHome'" >Salary percentage</a></li>
-                        
-                      </ul>
-                    </li>
-                   <ul>
-                   <li *ngIf="Roles.includes('VHELP')" role="presentation">
-                    <a [routerLink] = "'/help'"   >Help</a>
-                   </li>
-                 </ul>
+                <li *ngIf="Roles.includes('VOBADM')" role="presentation"><span class="ibm-subnav-heading">
+                  <a id="onboarding" [routerLink] ="'/obAdmin'">OB Admin</a></span>
+                    <ul >
+                      <li *ngIf="Roles.includes('VNBLSTOB')" role="presentation"><a  [routerLink] ="'/ViewOBNB'" >Notice board</a></li>
+                      <li *ngIf="Roles.includes('VDOCSOB')" role="presentation" ><a    [routerLink] ="'/ViewOBDoc'" >Documents </a></li>
+                      <li *ngIf="Roles.includes('VOBLTEMP')" role="presentation" ><a    [routerLink] ="'/viewLetterTemplates'" >Letter templates</a></li>
+                      <li *ngIf="Roles.includes('VHLPCNT')" role="presentation" ><a    [routerLink] ="'/helpContent'" >Help content</a></li>
+                    </ul>
+                </li>
+                  
+                <li *ngIf="Roles.includes('VPROCLST')" role="presentation">
+                  <a [routerLink] = "'/Home'">Procurement</a>
+                </li>
+             </ul>
+            </li>
+                  
+            <li *ngIf="Roles.includes('VTRALIST')" role="presentation"><span class="ibm-subnav-heading">
+              <a [routerLink] = "'/immigration'"  id="travelList" >Immigration</a></span>
+                <ul>
+                  <li *ngIf="Roles.includes('VPLLIST')" role="presentation"  ><a    [routerLink] ="'/preLandingList'" >Pre-Landing List</a></li>
+                  <li *ngIf="Roles.includes('VIMREP')" role="presentation"><a    [routerLink] ="'/immReportsHome'" >Immigration reports </a></li>
                 </ul>
-          </div>
-        </nav>
+            </li>
+        
+            <li *ngIf="Roles.includes('VAPPDOCS')" role="presentation">
+              <a [routerLink] = "'/ViewAppDocs'" >Documents</a>
+            </li>
+        
+            <li *ngIf="Roles.includes('VADMHM')"   ><span class="ibm-subnav-heading">
+              <a id="onboarding" [routerLink] ="'/admHome'">Administrator</a></span>
+                <ul>
+                  <li *ngIf="Roles.includes('VPARLIST')" role="presentation" ><a    [routerLink] ="'/ViewParam'" >Parameters</a></li>
+                  <li *ngIf="Roles.includes('VIBMIC')" role="presentation"  ><a    [routerLink] ="'/ViewIBMI'" >US HCAM Contacts </a></li>
+                  <li *ngIf="Roles.includes('VUSACLST')" role="presentation"  ><a    [routerLink] ="'/ViewAcnt'" >US account contacts</a></li>
+                  <li *ngIf="Roles.includes('VNBD')" role="presentation"  ><a    [routerLink] ="'/ViewNB'" >Notice board</a></li>
+                  <li *ngIf="Roles.includes('VDOCSADM')" role="presentation"  ><a    [routerLink] ="'/ViewDoc'" >Documents</a></li>
+                  <li *ngIf="Roles.includes('VOESDATA')" role="presentation"    ><span class="ibm-subnav-heading"><a    [routerLink] ="'/GetPrevail'" > OES Data</a></span>
+                    <ul >
+                      <li *ngIf="Roles.includes('VPREVAIL')"role="presentation"  ><a    [routerLink] ="'/GetPrevail'" >Prewailing wages</a></li>
+                      <li *ngIf="Roles.includes('VGEOTIER')" role="presentation"  ><a    [routerLink] ="'/GetGeoTier'" >Geo tier</a></li>
+                      <li *ngIf="Roles.includes('VGEOSAL')" role="presentation"  ><a    [routerLink] ="'/ShowGeoSal'" >Geo Sal</a></li>
+                      <li *ngIf="Roles.includes('VSALSEL')" role="presentation"  ><a    [routerLink] ="'/ShowSalSelect'" >Salary select</a></li>
+                    </ul>
+                  </li>
+                  <li *ngIf="Roles.includes('VZIPCODE')" role="presentation"  ><a    [routerLink] ="'/ShowZip'" >Zip codes</a></li>
+                  <li *ngIf="Roles.includes('VSETALLW')" role="presentation"  ><a    [routerLink] ="'/ViewSettle'" >Settlement allowances</a></li>
+                  <li *ngIf="Roles.includes('VPAYDT')" role="presentation"  ><a    [routerLink] ="'/listPayrollDates'" >Payroll dates</a></li>
+                  <li *ngIf="Roles.includes('VSECTIND')" role="presentation"  ><a    [routerLink] ="'/listSectIndData'" >Sector-Industry</a></li>
+                  <li *ngIf="Roles.includes('VLETTEMP')" role="presentation"  ><a    [routerLink] ="'/viewLetterTemplates'" >Upload letter templates</a></li>
+                  <li *ngIf="Roles.includes('VHOLIDAY')" role="presentation"  ><a    [routerLink] ="'/listHolidayDates'" >Holiday list</a></li>
+                  <li *ngIf="Roles.includes('VSSTATE')" role="presentation"  ><a    [routerLink] ="'/viewSickStateList'" >Sick state details</a></li>
+                  <li *ngIf="Roles.includes('VCOUNT')" role="presentation"  ><a    [routerLink] ="'/viewcountryCodes'" >Country codes</a></li>
+                  <li *ngIf="Roles.includes('VFILEUP')" role="presentation"  ><a    [routerLink] ="'/uploadFilesHome'" >File uploads</a></li>
+                  <li *ngIf="Roles.includes('VSALPERC')" role="presentation"  ><a    [routerLink] ="'/SalRangePercentageHome'" >Salary percentage</a></li>
+               </ul>
+            </li>
+            <li *ngIf="Roles.includes('VHELP')" role="presentation">
+              <a [routerLink] = "'/help'"   >Help</a>
+            </li>
+    </ul>
+  </div>
+</nav>

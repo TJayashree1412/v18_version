@@ -13,7 +13,6 @@ export class RoutingComponent implements OnInit {
   }
 
   isNavigated(): boolean{
-    console.log("sessionStorage.getItem(isNavigate)" ,sessionStorage.getItem("isNavigate") )
     if (sessionStorage.getItem("isNavigate") === "true") {      
       return true;      
       } else{

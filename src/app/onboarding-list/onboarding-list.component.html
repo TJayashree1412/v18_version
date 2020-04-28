@@ -6,159 +6,152 @@
      
     <br/>
     <br>
-       
+    
+    <div *ngIf="isSpinner" class="loader"></div>
+    
     <div class="ibm-col-12-10">
-        <p style="color:darkcyan"><b> ONBOARD </b></p>
-    <table id="onboardingTable"  data-widget="datatable"
-    data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="true"
-    data-ordering="true" data-paging="true" data-searching="true"
-    class="ibm-data-table ibm-altrows ibm-padding-small" data-scrollaxis="y">
-                                    <thead>
-                                        <tr >
-                                            <th >Last Name</th>
-                                            <th >First Name</th>
-                                            <th >Employee Serial</th>
-                                            <th >Employee Host Serial</th>
-                                            <th >Primary Email Id</th>
-                                            <th >Host Country Email ID</th>
-                                            <th >O/B Proc complete</th>
-                                            <th >O/B Rep</th>
-                                            <th >Actual Start Date</th>
-                                            <th >Work City</th>
-                                            <th >Work State</th>
-                                        </tr>
-                                    </thead>
+            <p style="color:darkcyan"><b> ONBOARD </b></p>
+    
+              <div *ngIf="!isSpinner" class="ibm-card ibm-padding-content" >
+                <table id="onboardingTable"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="true" data-ordering="true" data-paging="true" data-searching="true"
+                    class="ibm-data-table ibm-grid ibm-altrows ibm-padding-small">
+                        <thead>
+                            <tr >
+                                <th >Last Name</th>
+                                <th >First Name</th>
+                                <th >Employee Serial</th>
+                                <th >Employee Host Serial</th>
+                                <th >Primary Email Id</th>
+                                <th >Host Country Email ID</th>
+                                <th >O/B Proc complete</th>
+                                <th >O/B Rep</th>
+                                <th >Actual Start Date</th>
+                                <th >Work City</th>
+                                <th >Work State</th>
+                            </tr>
+                        </thead>
                                     
-                                    <tbody *ngFor = "let bean of onboardList ">
-                                        <tr  >
-                                            <td ><a class="ibm-edit" (click)="onViewClick(bean.empId)">{{bean.empLastName}}</a></td>
-                                            <td > {{bean.empFistName}}</td>
-                                            <td>{{bean.empId}}</td>
-                                            <td >{{bean.hostEmpSerial}}</td>
-                                            <td>{{bean.emailId}}</td>
-                                            <td >{{bean.hostEmpEmail}}</td>
-                                            <td >{{bean.obCmpltdDt |date :'dd MMM yyyy'}}</td>
-                                            <td >{{bean.obRep}}</td>
-                                            <td >{{bean.actualStDt|date :'dd MMM yyyy'}}</td>
-                                            <td >{{bean.workCity}}</td>
-                                            <td >{{bean.workState}}</td>
-                                        </tr>
+                        <tbody >
+                            <tr  *ngFor = "let bean of onboardLists ">
+                                <td ><a class="ibm-edit" (click)="openModal('view-edit-modal',bean.obId)">{{bean.empLastName}}</a></td>
+                                <td > {{bean.empFistName}}</td>
+                                <td>{{bean.empId}}</td>
+                                <td >{{bean.hostEmpSerial}}</td>
+                                <td>{{bean.emailId}}</td>
+                                <td >{{bean.hostEmpEmail}}</td>
+                                <td >{{bean.obCmpltdDt |date :'dd MMM yyyy'}}</td>
+                                <td >{{bean.obRep}}</td>
+                                <td >{{bean.actualStDt|date :'dd MMM yyyy'}}</td>
+                                <td >{{bean.workCity}}</td>
+                                <td >{{bean.workState}}</td>
+                            </tr>
 
-                                    </tbody>
+                         </tbody>
    
                                     
-                                </table>
-                               </div>
+                </table>
+            </div>
+            <br>
+            <br>
+        <p style="color:darkcyan"><b> Pending Landed </b></p>
+            <!-- <div *ngIf="!isSpinner" class="loader"> -->
+                <table id="pendingLandedTable"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="true" data-ordering="true" data-paging="true" data-searching="true"
+                    class="ibm-data-table ibm-altrows ibm-padding-small">
+                    <thead>
+                        <tr>
+                            <th >Last Name</th>
+                            <th >First Name</th>
+                            <th >Employee Serial</th>
+                            <th >Primary Email Id</th>
+                            <th >O/B Rep</th>
+                            <th >Visa Type</th>
+                            <th >Proposed Start Date</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr *ngFor = "let dto of pendingLandedList ">
+                            <td>{{dto.empLastName}}</td>
+                            <td>{{dto.empFistName}}</td>
+                            <td>{{dto.empId}}</td>
+                            <td>{{dto.emailId}}</td>
+                            <td>{{dto.obRep}}</td>
+                            <td>{{dto.visaType}}</td>
+                            <td>{{dto.propProjStartDt|date :'dd MMM yyyy'}}</td>
+                           
+                        </tr>
+
+                    </tbody>
+                    </table>
+                <!-- </table></div> -->
+        <br>
+        <br>
+        <p style="color:darkcyan"><b>E-Sign Awaiting</b></p>
+            <!-- <div *ngIf="!isSpinner" class="loader"> -->
+              <table id="esign"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="true" data-ordering="true" data-paging="true" data-searching="true"
+                class="ibm-data-table ibm-altrows ibm-padding-small">
+                <thead>
+                        <tr>
+                            <th >Last Name</th>
+                            <th >First Name</th>
+                            <th >Employee Serial</th>
+                            <th >Primary Email Id</th>
+                            <th >O/B Rep</th>
+                            <th >Visa Type</th>
+                            <th >Proposed Start Date</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr *ngFor = "let dto of esignAwaitingList ">
+                            <td>{{dto.empLastName}}</td>
+                            <td>{{dto.empFistName}}</td>
+                            <td>{{dto.empId}}</td>
+                            <td>{{dto.emailId}}</td>
+                            <td>{{dto.obRep}}</td>
+                            <td>{{dto.visaType}}</td>
+                            <td>{{dto.propProjStartDt|date :'dd MMM yyyy'}}</td> 
+                           
+                        </tr>
+                    </tbody>
+            </table>
+
+        <p style="color:darkcyan"><b>Termination Management</b></p>
+            <!-- <div *ngIf="!isSpinner" class="loader"> -->
+              <table id="terminationTable"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="true" data-ordering="true" data-paging="true" data-searching="true"
+                class="ibm-data-table ibm-altrows ibm-padding-small">
+                
+                    <thead>
+                         <tr>
+                            <th >Last Name</th>
+                            <th >First Name</th>
+                            <th >Employee Serial</th>
+                            <th >Employee Host Serial</th>
+                            <th >Onboard Status</th>
+                            <th >Primary Email Id</th>
+                            <th >Host Country Email ID</th>
+                            <th >O/B Proc complete</th>
+                            <th >O/B Rep</th>
+                            <th >Actual Start Date</th>
+                            <th >Work City</th>
+                            <th >Work State</th>
+                        </tr>
+                    </thead>
+                </table>
+                               
+                               
+                                
+                               
+                        
+    <modal id="view-edit-modal" style="height: 200x; width: 200px;">
+    <p class="ibm-btn-row">
+        <p>To View Employee Details of {{obId}}</p> <span><button class="ibm-btn-pri ibm-btn-teal-50">View</button></span>
+        <p>To Edit Employee Details of {{obId}}</p> <button class="ibm-btn-pri">Edit</button>
+    <button  class="ibm-btn-sec" (click)="closeModal('custom-modal-1');">Close</button>
+    </modal>
+</div>
 </body>
 
-<div class="ibm-common-overlay" data-widget="overlay" data-type="focused" id="onboardOverlay">
-   
-    <p> Employee Details of {{empId}}</p>
-    <p class="ibm-btn-row">
-        <p>To View Employee Details of {{empId}}</p><button class="ibm-btn-pri ibm-btn-teal-50">View</button>
-        <p>To Edit Employee Details of {{empId}}</p> <button class="ibm-btn-pri">Edit</button>
-        <button class="ibm-btn-sec">Cancel</button>
-</div>
-            <!-- <div class="ds-accordion-container ds-mar-t-0 ds-mar-b-0 ds-no-border">
-                <div class="ds-row ds-accordion-item" aria-controls="ds-accordion-slidedown" aria-expanded="false" role="accordion item" style="background-color: transparent;">
-                    <button class="ds-accordion-title ds-text-contextual-blue-5">Pending Landed</button>
-                        <div class="ds-accordion-slidedown" aria-hidden="true" role="region" style="background-color: transparent;">
-                            <div class="ds-table-container" style="overflow:hidden;"> 
-                                <table  #dataTable class="ds-table ds-table-compact ds-striped ds-hover">
-                                  
-                                    <thead>
-                                        <tr>
-                                            <th >Last Name</th>
-                                            <th >First Name</th>
-                                            <th >Employee Serial</th>
-                                            <th >Primary Email Id</th>
-                                            <th >O/B Rep</th>
-                                            <th >Visa Type</th>
-                                            <th >Proposed Start Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody *ngFor = "let dto of pendingLandedList | paginate:{id:'pendingList',itemsPerPage: 8, currentPage:r}">
-                                        <tr>
-                                            <td>{{dto.empLastName}}</td>
-                                            <td>{{dto.empFistName}}</td>
-                                            <td>{{dto.empId}}</td>
-                                            <td>{{dto.emailId}}</td>
-                                            <td>{{dto.obRep}}</td>
-                                            <td>{{dto.visaType}}</td>
-                                            <td>{{dto.propProjStartDt}}</td>
-                                           
-                                        </tr>
 
-                                    </tbody>
-                                </table>
-                                <pagination-controls id="pendingList" autoHide="true" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"(pageChange)="r=$event" class="ds-float-right"></pagination-controls>
-                            </div>
-                       </div>
-                </div>
-            </div>
-
-            <div class="ds-accordion-container ds-mar-t-0 ds-mar-b-0 ds-no-border">
-                <div class="ds-row ds-accordion-item" aria-controls="ds-accordion-slidedown" aria-expanded="false" role="accordion item" style="background-color: transparent;">
-                    <button class="ds-accordion-title ds-text-contextual-blue-5">Awaiting emp e-signature</button>
-                        <div class="ds-accordion-slidedown" aria-hidden="true" role="region" style="background-color: transparent;">
-                            <div class="ds-table-container" style="overflow:hidden;">
-                                <table class="ds-table ds-table-compact ds-striped ds-hover">
-                                    <thead>
-                                        <tr>
-                                            <tr>
-                                                <th >Last Name</th>
-                                                <th >First Name</th>
-                                                <th >Employee Serial</th>
-                                                <th >Primary Email Id</th>
-                                                <th >O/B Rep</th>
-                                                <th >Visa Type</th>
-                                                <th >Proposed Start Date</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody *ngFor = "let dto of esignAwaitingList | paginate:{id:'esignList',itemsPerPage: 8, currentPage:q}">
-                                            <tr>
-                                                <td>{{dto.empLastName}}</td>
-                                                <td>{{dto.empFistName}}</td>
-                                                <td>{{dto.empId}}</td>
-                                                <td>{{dto.emailId}}</td>
-                                                <td>{{dto.obRep}}</td>
-                                                <td>{{dto.visaType}}</td>
-                                                 <td>{{dto.propProjStartDt|date :'dd MMM yyyy'}}</td> 
-                                               
-                                            </tr>
-                                        </tbody>
-                                </table>
-                                <pagination-controls id="esignList"autoHide="true" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" (pageChange)="q=$event" class="ds-float-right"></pagination-controls>
-                             </div>
-                        </div>
-                </div>
-            </div>
-
-            <div class="ds-accordion-container ds-mar-t-0 ds-mar-b-0 ds-no-border">
-                <div class="ds-row ds-accordion-item" aria-controls="ds-accordion-slidedown" aria-expanded="false" role="accordion item" style="background-color: transparent;">
-                    <button class="ds-accordion-title ds-text-contextual-blue-6">Termination Management</button>
-                        <div class="ds-accordion-slidedown" aria-hidden="true" role="region" style="background-color: transparent;">
-                            <div class="ds-table-container" style="overflow:hidden;">
-                                <table class="ds-table ds-table-compact ds-striped ds-hover">
-                                    <thead>
-                                         <tr>
-                                            <th >Last Name</th>
-                                            <th >First Name</th>
-                                            <th >Employee Serial</th>
-                                            <th >Employee Host Serial</th>
-                                            <th >Onboard Status</th>
-                                            <th >Primary Email Id</th>
-                                            <th >Host Country Email ID</th>
-                                            <th >O/B Proc complete</th>
-                                            <th >O/B Rep</th>
-                                            <th >Actual Start Date</th>
-                                            <th >Work City</th>
-                                            <th >Work State</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div> -->
+           
+           
+                                
+                          

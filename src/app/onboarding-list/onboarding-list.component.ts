@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { OnboardingService } from '../onboardingService';
 import { Onboard } from '../Onboard';
-
+import { ModalService } from '../modal';
 declare var IBMCore: any;
 declare var jQuery :any;
 @Component({
@@ -12,48 +12,40 @@ declare var jQuery :any;
 
 
 export class OnboardingListComponent implements OnInit {
-  headers :String[];
-  onboardList :any []=[];
+  headers :String[]; 
+  onboardLists : Onboard[] = [];;
   pendingLandedList : Onboard[] = [];
   esignAwaitingList : Onboard[] = [];
   empId : String;
-  
-  
-  constructor (public onboardingService: OnboardingService ) {}
+  obId: String;
+ isSpinner = false;
+  constructor (public onboardingService: OnboardingService,private modalService: ModalService ) {}
 
   ngOnInit() {
    
-      this.getOnboardedList();
-      // this.getPendingLandedList();
-      // this.getEmpSignAwaitingList();
+        this.getOnboardedList();
+        this.getPendingLandedList();
+        this.getEmpSignAwaitingList();
      
     }
     
 
-    async getOnboardedList() {
-      this.onboardingService.getOnboardedList()
-      
-        .subscribe(resp => {
-          this.onboardList = resp.body
-        
-          jQuery('#onboardingTable').dataTable().fnDestroy();
-		 } , (error: any) => {
+     async getOnboardedList() {
+       this.isSpinner = true;
+       this.onboardingService.getOnboardedList()
+       .subscribe((resp:any) => {
+         this.onboardLists=resp.body;
+         jQuery('#onboardingTable').dataTable().fnDestroy();
+         } , (error: any) => {
            console.log(error, 'error');
-     },
-           async () => {
+         },async () => {
           setTimeout(() => {
               jQuery("onboardingTable_filter input").attr("placeholder", "Type here");
-            
-             
           }, 100);
-          console.log("before widget")
-          IBMCore.common.widget.datatable.init('#onboardingTable');
-         console.log("after widget")
-        
-        await this.delay(1);
-       
-         
+          await this.delay(1);
+         IBMCore.common.widget.datatable.init('#onboardingTable'); 
         });
+        this.isSpinner = false;
       }
     
 	     delay(ms: number) {
@@ -65,32 +57,45 @@ export class OnboardingListComponent implements OnInit {
     async getPendingLandedList() {
       this.onboardingService.getPendingLandedList()
         .subscribe(resp => {
-          console.log(resp);
-          const keys = resp.headers.keys();
-          this.headers = keys.map(key => `${key}: ${resp.headers.get(key)}`);
-          for (const data of resp.body) {
-            this.pendingLandedList.push(data);
-          }
-          console.log(this.pendingLandedList);
+         this.pendingLandedList = resp.body
+          jQuery('#pendingLandedTable').dataTable().fnDestroy();
+         } , (error: any) => {
+           console.log(error, 'error');
+         },async () => {
+          setTimeout(() => {
+              jQuery("pendingLandedTable_filter input").attr("placeholder", "Type here");
+          }, 100);
+          await this.delay(1);
+         IBMCore.common.widget.datatable.init('#pendingLandedTable'); 
         });
-    }
+        
+      }
+    
 
-    async getEmpSignAwaitingList() {
-      this.onboardingService.getEmpSignAwaitingList()
-      .subscribe(resp => {
-        console.log(resp);
-        const keys = resp.headers.keys();
-        this.headers = keys.map(key => `${key}: ${resp.headers.get(key)}`);
-        for (const data of resp.body) {
-            this.esignAwaitingList.push(data);
-          }
-          console.log(this.esignAwaitingList);
+      async getEmpSignAwaitingList() {
+        this.onboardingService.getEmpSignAwaitingList()
+        .subscribe(resp => {
+          this.esignAwaitingList = resp.body
+          jQuery('esign').dataTable().fnDestroy();
+         } , (error: any) => {
+           console.log(error, 'error');
+         },async () => {
+          setTimeout(() => {
+              jQuery("esign_filter input").attr("placeholder", "Search here");
+          }, 100);
+          await this.delay(1);
+         IBMCore.common.widget.datatable.init('#esign'); 
         });
-    }
+        
+      }
 
-    onViewClick(empId){
-      this.empId = empId;
-      IBMCore.common.widget.overlay.show('onboardOverlay')
-    }
+    openModal(id: string, obId :String) {
+      this.modalService.open(id);
+      this.obId = obId;
+  }
+
+  closeModal(id: string) {
+      this.modalService.close(id);
+  }
      
   }

@@ -12,6 +12,7 @@ export class NavigationComponent implements OnInit {
 
   constructor() { }
   ngOnInit() {
+    
     let listofRoles = sessionStorage.getItem("userdata");
     let json = JSON.parse(listofRoles);
     this.Roles = json.actionEventList;

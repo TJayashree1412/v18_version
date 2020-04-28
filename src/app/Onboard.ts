@@ -11,4 +11,5 @@ export interface Onboard{
     actualStDt : String;
     workCity : String;
     workState : String;
+    obId :String;
 }

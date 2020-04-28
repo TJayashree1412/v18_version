@@ -49,6 +49,8 @@ import { ViewIBMIComponent } from './view-ibmi/view-ibmi.component' ;
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EditIBMIComponent } from './view-ibmi/edit-ibmi/edit-ibmi.component';
 import { AddIBMIComponent } from './view-ibmi/add-ibmi/add-ibmi.component';
+import { ModalModule } from './modal';
+import {DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,6 @@ import { AddIBMIComponent } from './view-ibmi/add-ibmi/add-ibmi.component';
     ViewIBMIComponent,
     EditIBMIComponent,
     AddIBMIComponent
-    // RoutingComponent
   ],
   imports: [
     BrowserModule,
@@ -103,6 +104,8 @@ import { AddIBMIComponent } from './view-ibmi/add-ibmi/add-ibmi.component';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    DataTablesModule,
+    ModalModule
   ],
   providers: [DataService,AuthGuard],
   bootstrap: [AppComponent]

@@ -12,7 +12,6 @@ declare var jQuery :any;
 
 
 export class OnboardingListComponent implements OnInit {
-  headers :String[]; 
   onboardLists : Onboard[] = [];;
   pendingLandedList : Onboard[] = [];
   esignAwaitingList : Onboard[] = [];
@@ -74,9 +73,9 @@ export class OnboardingListComponent implements OnInit {
 
       async getEmpSignAwaitingList() {
         this.onboardingService.getEmpSignAwaitingList()
-        .subscribe(resp => {
+        .subscribe((resp:any)=> {
           this.esignAwaitingList = resp.body
-          jQuery('esign').dataTable().fnDestroy();
+          jQuery('#esign').dataTable().fnDestroy();
          } , (error: any) => {
            console.log(error, 'error');
          },async () => {
@@ -88,14 +87,5 @@ export class OnboardingListComponent implements OnInit {
         });
         
       }
-
-    openModal(id: string, obId :String) {
-      this.modalService.open(id);
-      this.obId = obId;
-  }
-
-  closeModal(id: string) {
-      this.modalService.close(id);
-  }
      
   }

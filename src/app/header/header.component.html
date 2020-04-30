@@ -3,9 +3,9 @@
 <div class="ibm-row">
     <h1 class= "ibm-h2 ibm-vertical-center" style="background-color:#121212;height: 50px;font-weight: normal;color: white;"> US Host Country Assignment Model
     <div style="margin-left: 1000px;" *ngIf="isUserAuthenticated()" > 
-        <img  style="height: 30px;width: 30px;margin-top: 20px; "src="{{profilePic}}"  class="ds-img-circle hp-signin-img"><span style="margin-top: 20px;"> 
+        <img  style="height: 30px;width: 30px;margin-top: 20px; "src="{{profilePic}}"  class="hp-signin-img"><span style="margin-top: 20px;"> 
     <b> {{username}} </b></span></div> 
-    <div *ngIf="isUserAuthenticated()" style="margin-left: 100px;margin-top: 25px;" (click)="SignOut()" >
+    <div *ngIf="isUserAuthenticated()" style="margin-left: 100px;margin-top: 25px;cursor: pointer;" (click)="SignOut()" >
         <span style="font-size: 25px;">   <i class="fas fa-sign-out-alt" title="Sign Out"></i> </span></div>
 
     </h1>

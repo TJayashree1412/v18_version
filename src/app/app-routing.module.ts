@@ -36,6 +36,7 @@ import { PrivacyNoticeComponent } from './privacy-notice/privacy-notice.componen
 import {ViewIBMIComponent} from './view-ibmi/view-ibmi.component';
 import {EditIBMIComponent} from './view-ibmi/edit-ibmi/edit-ibmi.component';
 import {AddIBMIComponent} from './view-ibmi/add-ibmi/add-ibmi.component';
+import { ViewOnboardRecordComponent } from './view-onboard-record/view-onboard-record.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'Login', component: LoginComponent },
@@ -74,6 +75,8 @@ const routes: Routes = [
   { path: 'viewIBMI', component: ViewIBMIComponent},
   {path: 'editIBMI/:id', component: EditIBMIComponent},
   {path: 'addIBMI', component: AddIBMIComponent},
+  {path: 'viewOnboardRecord', component: ViewOnboardRecordComponent},
+  {path: 'editOnboardRecord', component: ViewOnboardRecordComponent},
 ];
 
 @NgModule({

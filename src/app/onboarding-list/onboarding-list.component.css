@@ -1,17 +1,19 @@
  table tbody tr td{
-    font-size: x-small;
+    font-size: small;
     border-right:none;
     border-left:none;
     border-top: none;
     border-bottom-color: black; 
     width: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  }
 table thead tr th{
-    font-size: small;
+    font-size: medium;
     background-color: lightskyblue;
     border: none;
     width: auto;
-   
+    align-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 } 
 

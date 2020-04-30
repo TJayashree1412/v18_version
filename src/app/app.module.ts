@@ -46,11 +46,11 @@ import { FmlaViewComponent } from './fmla-view/fmla-view.component';
 import { StaffingTeamComponent } from './staffing-team/staffing-team.component';
 import { PrivacyNoticeComponent } from './privacy-notice/privacy-notice.component';
 import { ViewIBMIComponent } from './view-ibmi/view-ibmi.component' ;
-import { NgxPaginationModule } from 'ngx-pagination';
 import { EditIBMIComponent } from './view-ibmi/edit-ibmi/edit-ibmi.component';
 import { AddIBMIComponent } from './view-ibmi/add-ibmi/add-ibmi.component';
 import { ModalModule } from './modal';
-import {DataTablesModule } from 'angular-datatables';
+import { ViewOnboardRecordComponent } from './view-onboard-record/view-onboard-record.component';
+import { EditOnboardRecordComponent } from './edit-onboard-record/edit-onboard-record.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +94,9 @@ import {DataTablesModule } from 'angular-datatables';
     PrivacyNoticeComponent,
     ViewIBMIComponent,
     EditIBMIComponent,
-    AddIBMIComponent
+    AddIBMIComponent,
+    ViewOnboardRecordComponent,
+    EditOnboardRecordComponent
   ],
   imports: [
     BrowserModule,
@@ -103,8 +105,6 @@ import {DataTablesModule } from 'angular-datatables';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgxPaginationModule,
-    DataTablesModule,
     ModalModule
   ],
   providers: [DataService,AuthGuard],

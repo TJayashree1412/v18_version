@@ -96,7 +96,7 @@
               <a id="onboarding" [routerLink] ="'/admHome'">Administrator</a></span>
                 <ul>
                   <li *ngIf="Roles.includes('VPARLIST')" role="presentation" ><a    [routerLink] ="'/ViewParam'" >Parameters</a></li>
-                  <li *ngIf="Roles.includes('VIBMIC')" role="presentation"  ><a    [routerLink] ="'/ViewIBMI'" >US HCAM Contacts </a></li>
+                  <li *ngIf="Roles.includes('VIBMIC')" role="presentation"  ><a    [routerLink] ="'/viewIBMI'" >US HCAM Contacts </a></li>
                   <li *ngIf="Roles.includes('VUSACLST')" role="presentation"  ><a    [routerLink] ="'/ViewAcnt'" >US account contacts</a></li>
                   <li *ngIf="Roles.includes('VNBD')" role="presentation"  ><a    [routerLink] ="'/ViewNB'" >Notice board</a></li>
                   <li *ngIf="Roles.includes('VDOCSADM')" role="presentation"  ><a    [routerLink] ="'/ViewDoc'" >Documents</a></li>

@@ -1,8 +1,9 @@
-export interface IBMIContact {
+export class IBMIContact {
     resourceId: string;
     resource: string;
     emailId: string;
     phone: string;
     faxNum: string;
     countryName: string;
+    countryCode: string;
 }

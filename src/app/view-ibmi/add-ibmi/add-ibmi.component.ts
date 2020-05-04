@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdministratorServiceService } from 'src/app/service/administrator-service.service';
 import { ParameterBean } from 'src/app/parameter-bean';
+import { IBMIContact } from 'src/app/IBMIContact';
+import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-ibmi',
@@ -8,11 +10,24 @@ import { ParameterBean } from 'src/app/parameter-bean';
   styleUrls: ['./add-ibmi.component.css']
 })
 export class AddIBMIComponent implements OnInit {
+  statusCode: any;
+  contact: FormGroup;
   headers: string[];
   countryMap: ParameterBean[] = [];
-  constructor(public administratorService: AdministratorServiceService) { }
+  ibmiContact: IBMIContact;
+  resource: string;
+  emailId: string;
+  phone: string;
+  faxNum: string;
+  countryCode: string;
+  constructor(public administratorService: AdministratorServiceService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.resource = '';
+    this.emailId = '';
+    this.phone = '';
+    this.faxNum = '';
+    this.countryCode = '';
     this.administratorService.getCountryMap().subscribe(resp => {
       console.log(resp);
       const keys = resp.headers.keys();
@@ -22,5 +37,33 @@ export class AddIBMIComponent implements OnInit {
         this.countryMap.push(data);
       }
   });
+    console.log('country name :', this.countryCode);
+  //   this.contact = this.formBuilder.group({
+  //   resource: ['', Validators.required],
+  //   emailId: ['', Validators.required],
+  //   phone: ['', Validators.required],
+  //   faxNum: ['', Validators.required],
+  //   countryCode: [{}, Validators.required]
+  // });
   }
+  addContact() {
+    this.ibmiContact = new IBMIContact();
+    console.log(this.contact, this.emailId, this.phone, this.faxNum, this.countryCode);
+    this.ibmiContact.resource = this.resource;
+    this.ibmiContact.emailId = this.emailId;
+    this.ibmiContact.phone = this.phone;
+    this.ibmiContact.faxNum = this.faxNum;
+    this.ibmiContact.countryCode = this.countryCode;
+    // this.administratorService.addIBMIContact(this.ibmiContact).subscribe(resp => {
+    //   this.statusCode = resp.status;
+    //   if (this.statusCode === true) {
+    //     console.log('Success', this.statusCode);
+    //   }
+    // });
+   }
+  //  selectChangeHandler(event: any) {
+  //    console.log(event.target,"       ",event.target.value);
+  //   this.countryCode = event.target.value;
+
+  //  }
 }

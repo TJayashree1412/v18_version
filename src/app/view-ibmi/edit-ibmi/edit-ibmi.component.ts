@@ -3,6 +3,7 @@ import { AdministratorServiceService } from 'src/app/service/administrator-servi
 import { ActivatedRoute } from '@angular/router';
 import { ParameterBean } from 'src/app/parameter-bean';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { IBMIContact } from 'src/app/IBMIContact';
 
 @Component({
   selector: 'app-edit-ibmi',
@@ -13,14 +14,18 @@ export class EditIBMIComponent implements OnInit {
   public IBMIid: string;
   headers: string[];
   // contactDetails: IBMIContact;
+  resourceId: string;
   resource: string;
   emailId: string;
   phone: string;
   faxNum: string;
   countryName: string;
+  countryCode: ParameterBean;
   countryMap: ParameterBean[] = [];
   countryForm: FormGroup;
   form: FormGroup;
+  ibmiContact: IBMIContact;
+  statusCode: any;
   constructor(public administratorService: AdministratorServiceService, private route: ActivatedRoute, private fb: FormBuilder) {
     this.form = this.fb.group({
       countryMap: ['']
@@ -34,6 +39,7 @@ export class EditIBMIComponent implements OnInit {
     console.log(this.IBMIid);
     this.administratorService.editIBMIContact(this.IBMIid).subscribe( (resp: any) => {
       console.log(resp.body);
+      this.resourceId = resp.body.resourceId;
       this.resource = resp.body.resource;
       this.emailId = resp.body.emailId;
       this.phone = resp.body.phone;
@@ -55,6 +61,33 @@ export class EditIBMIComponent implements OnInit {
     // this.countryForm = this.fb.group({
     //   countryControf(this.getOrders()).subscribe(orders => {
     // });
+  }
+  updateContact() {
+    this.ibmiContact = new IBMIContact();
+    console.log(this.resourceId,this.resource, this.emailId, this.phone, this.faxNum, this.countryCode);
+    this.ibmiContact.resourceId = this.resourceId;
+    this.ibmiContact.resource = this.resource;
+    this.ibmiContact.emailId = this.emailId;
+    this.ibmiContact.phone = this.phone;
+    this.ibmiContact.faxNum = this.faxNum;
+    this.ibmiContact.countryCode = this.countryCode.paramId;
+    console.log("this.countrycode:  ",this.countryCode,"this.countryName: ",this.countryCode.paramName);
+    this.administratorService.updateIBMIContact(this.ibmiContact).subscribe(resp =>{
+      this.statusCode = resp.status;
+      if (this.statusCode === true) {
+        console.log('Success', this.statusCode);
+      }
+    });
+  }
+
+  deleteContact(IBMIid: any) {
+    this.administratorService.deleteIBMIContact(IBMIid).subscribe(resp =>{
+      this.statusCode = resp.status;
+      if (this.statusCode === true) {
+        console.log('Success', this.statusCode);
+      }
+    });
+
   }
 
 }

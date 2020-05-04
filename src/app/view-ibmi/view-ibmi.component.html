@@ -1,34 +1,34 @@
-<h1 class="page-header ds-dark" style="font-weight: bolder; font-size: xx-large; margin-top: 1.5%; margin-left: 1%;"> US HCAM Contacts</h1>
-<h2 class="page-header" style="margin-top: -0.7%; margin-left: 6.1%; font-style: italic; color: gray; font-weight: bold;">List of US HCAM contacts</h2>
+<div class="ibm-col-12-10" >
+    <h1 class="form-heading ibm-h1 ">US HCAM Contacts</h1>
+    <h2 class="form-heading ibm-h2">List of US HCAM contacts</h2>
+    <br/>
+    <div >
+        <button  class="ibm-btn-sec ibm-right"  (click)="addContact('/addIBMI')">Add Contact</button>
+    </div> 
+    <br/>
 
-<div class="ds-row ">
-    <button class="ds-button ds-small ds-width-auto ds-secondary ds-float-right" style="margin-right:7%;font-weight: bolder; font-style: oblique; font-size: 20px;" (click)="addContact('/addIBMI')">Add Contact</button>
-</div>
-
-<div class="ds-row" style="margin-left: 2%; margin-right: 2%; margin-top: 2%;">
-    <div class="ds-table-container">
-    <table class="ds-table ds-hover ds-table-compact">
-        <thead> 
+    <table id="contactsTable" data-widget="datatable" data-col-reorder="true" data-info="true" 
+data-ordering="true" data-paging="true" data-searching="true" class="ibm-data-table ibm-altrows display"
+ data-order='[[1,"asc"],[0,"asc"],[3,"asc"]]'>
+    <thead>
         <tr>
-          <th>Full Name</th>
+        <th>Full Name</th>
           <th>Email</th>
           <th>Business Phone</th>
           <th>Fax Number</th>
           <th>Country/Region</th>
         </tr>
-        </thead>
-        <tbody *ngFor = "let contact of contactsList">
-            <tr>
-                <!-- <td><a routerLink="/editIBMI" routerLinkActive="active">{{contact.resource}}</a></td> (click)="gotoContactDetails('/editIBMI',contact.resourceId)-->
-                <td><a routerLink="editIBMI" routerLinkActive="active"  (click)="gotoContactDetails('/editIBMI',contact.resourceId)">{{contact.resource}}</a></td>
-                <td>{{contact.emailId}}</td>
-                <td>{{contact.phone}}</td>
-                <td>{{contact.faxNum}}</td>
-                <td>{{contact.countryName}}</td>
-            </tr>
-        </tbody>
-      </table> 
-    </div>
+    </thead>
+ 
+    <tbody>
+        <tr *ngFor = "let contact of contactsList">
+          
+            <td><a routerLink="editIBMI" routerLinkActive="active"  (click)="gotoContactDetails('/editIBMI',contact.resourceId)">{{contact.resource}}</a></td>
+            <td>{{contact.emailId}}</td>
+            <td>{{contact.phone}}</td>
+            <td>{{contact.faxNum}}</td>
+            <td>{{contact.countryName}}</td>
+        </tr>
+    </tbody>
+</table>
 </div>
-
-<router-outlet></router-outlet>

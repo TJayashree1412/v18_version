@@ -50,7 +50,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { EditIBMIComponent } from './view-ibmi/edit-ibmi/edit-ibmi.component';
 import { AddIBMIComponent } from './view-ibmi/add-ibmi/add-ibmi.component';
 import { ModalModule } from './modal';
-import {DataTablesModule } from 'angular-datatables';
+// import {DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -104,7 +104,7 @@ import {DataTablesModule } from 'angular-datatables';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
-    DataTablesModule,
+    // DataTablesModule,
     ModalModule
   ],
   providers: [DataService,AuthGuard],

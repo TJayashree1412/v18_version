@@ -1,9 +1,44 @@
 <h1 class="page-header">Create compensation request</h1>
 
 <form [formGroup]="raiseCompForm" class="raiseComp" >
-    <div class="ds-text-contextual-red-3">
+  <!--   <div class="ds-text-contextual-red-3">
         <p >IBM Confidential</p>
-    </div>
+    </div> -->
+        
+    <p>
+        <label for="myInputField4vvv">Compensation Type:</label>
+        <span>
+                <select id="myInputField4vvv" formControlName="createComp" >
+                   
+                    <option *ngFor="let compType of createComp.compensationType" [value]="compType.compId">
+                        {{compType.name}}
+                    </option>
+                </select>
+                 
+        </span>
+    </p>
+
+    <input id="myInputField1" type="button" name="Employee"/>
+    
+        <p>
+            <label for="myInputField4vvv">Employee Home Country:</label>
+            <span>
+                    <select id="myInputField4vvv" formControlName="createComp">
+                        <option value="">-- Choose --</option>
+                        <option value="1">This is option 1</option>
+                        <option value="2">This is option 2</option>
+                        <option value="3">This is option 3</option>
+                        <option value="4">This is option 4</option>
+                        <option value="5">This is option 5</option>
+                        <option value="6" disabled>This is disabled</option>
+                        <option value="7">This is option 7</option>
+                        <option value="8">This is option 8</option>
+                        <option value="9">This is option 9</option>
+                    </select>
+                     
+            </span>
+        </p>
+    
     
 
     <!-- <div class="ds-row">

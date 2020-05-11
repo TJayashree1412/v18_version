@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataSheetrsComponent } from './data-sheetrs.component';
+import { DataSheetsComponent } from './data-sheets.component';
 
 describe('DataSheetrsComponent', () => {
-  let component: DataSheetrsComponent;
-  let fixture: ComponentFixture<DataSheetrsComponent>;
+  let component: DataSheetsComponent;
+  let fixture: ComponentFixture<DataSheetsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataSheetrsComponent ]
+      declarations: [ DataSheetsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DataSheetrsComponent);
+    fixture = TestBed.createComponent(DataSheetsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

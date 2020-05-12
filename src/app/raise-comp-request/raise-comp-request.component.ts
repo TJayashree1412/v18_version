@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompensationService } from '../service/compensation.service';
 import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CreateCompensation } from '../model/create-compensation';
 import { CompensationDTO } from '../CompensationDTO';
 
@@ -14,45 +14,48 @@ export class RaiseCompRequestComponent implements OnInit {
   createComp: CompensationDTO;
   statusCode : number;
   errorMessage : string;
+  usstaymorethan89days=['Yes','No'];
   
-  raiseCompForm = this.fb.group({
-    // userName: ['', Validators.required],
-    // password: ['', Validators.required],
+  EmpInfoForm = new FormGroup({
+    EmployeeInfoData: new FormGroup({
+      empserial:new FormControl(null,[Validators.required])
+      
+  }),
+  PmpData: new FormGroup({
+    pmpseatid:new FormControl(null,[Validators.required])
+}),
+  empvisatype: new FormControl(),
+  comptypselect:new FormControl(),
+  countryselect:new FormControl(),
+  us89daysstay:new FormControl('Yes')
+  
   });
 
-  constructor(private fb: FormBuilder,private router: Router, public compService: CompensationService) { }
-
+  constructor(private fb: FormBuilder,private router: Router, public compService: CompensationService) {}
+ 
   ngOnInit(): void {
     
     this.createCompensation();
-    
-    // this.compService.createCompensation().subscribe(
-    //   data =>{
-    //     // this.createComp = data;
-    //   },
-    //   error => {
-    //     this.statusCode = error.status;
-    //     this.errorMessage = error.error;
-    //     alert(this.errorMessage);
-    //   } 
-    // )
-  }
-  createCompensation(){
-    
+    }
+ 
+  async createCompensation(){
+    console.log('Satya')
     this.compService.createCompensation().subscribe(
      data =>{
-     this.createComp = null;
-      },
+         this.createComp = data.body;
+       },
       error => {
         this.statusCode = error.status;
         this.errorMessage = error.error;
-        alert(this.errorMessage);
-      } 
+       } 
      )
-
-
+   
   }
  
+  onSubmit(){
+    console.log('Form submitted successfully');
+    console.log(this.EmpInfoForm);
 
+  }
 
 }

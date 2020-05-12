@@ -1,84 +1,90 @@
-<h1 class="page-header">Create compensation request</h1>
-
-<form [formGroup]="raiseCompForm" class="raiseComp" >
-  <!--   <div class="ds-text-contextual-red-3">
-        <p >IBM Confidential</p>
-    </div> -->
-        
+<h1 class="ibm-h1">Create compensation request</h1>
+<form [formGroup]="EmpInfoForm" class ="ibm-row-form" (ngSubmit)="onSubmit()">
+   
     <p>
-        <label for="myInputField4vvv">Compensation Type:</label>
+        <label class="ibm-column-field-label" for="comptypselect">Compensation Type:<span class="ibm-required">*</span></label>
         <span>
-                <select id="myInputField4vvv" formControlName="createComp" >
-                   
-                    <option *ngFor="let compType of createComp.compensationType" [value]="compType.compId">
-                        {{compType.name}}
+                <select id="comptypselect" formControlName="comptypselect" > 
+                    <option  value="">---Select---</option>
+                    <option *ngFor="let compType of createComp.compensationType | keyvalue" [ngValue]=compType>
+                        {{compType.value}}
                     </option>
-                </select>
+                 </select> 
                  
         </span>
     </p>
-
-    <input id="myInputField1" type="button" name="Employee"/>
-    
+    <div formGroupName= "EmployeeInfoData">
         <p>
-            <label for="myInputField4vvv">Employee Home Country:</label>
-            <span>
-                    <select id="myInputField4vvv" formControlName="createComp">
-                        <option value="">-- Choose --</option>
-                        <option value="1">This is option 1</option>
-                        <option value="2">This is option 2</option>
-                        <option value="3">This is option 3</option>
-                        <option value="4">This is option 4</option>
-                        <option value="5">This is option 5</option>
-                        <option value="6" disabled>This is disabled</option>
-                        <option value="7">This is option 7</option>
-                        <option value="8">This is option 8</option>
-                        <option value="9">This is option 9</option>
-                    </select>
-                     
+            <label class="ibm-column-field-label" for="empserial">IBM Employee Serial:<span class="ibm-required">*</span></label>
+        <span>
+            <input type="text" id="empserial" formControlName = "empserial">
+            <span *ngIf="!EmpInfoForm.get('EmployeeInfoData.empserial').valid&&EmpInfoForm.get('EmployeeInfoData.empserial').touched">
+            <span *ngIf = "EmpInfoForm.get('EmployeeInfoData.empserial').errors['required']">Emp Serial field is required</span>
             </span>
-        </p>
-    
-    
-
-    <!-- <div class="ds-row">
-        <div class="ds-col-xs-12 ds-mar-b-1">
-            <select style="width: 135%;" id="" required formControlName="createComp" 
-            ng-options="options" style="height: 25px;" >
-                <option value="Select">select</option>
-                 <option [ngValue]="items.value" *ngFor="let items of CreateCompensation.compensationType | keyvalue ">{{items.value}}</option>
-        </select> -->
-        <div class="ds-row">
-            <div class="ds-title ds-col-2" style="vertical-align: 10px;">Compensation Type
-            </div>
-            <div class="ds-col-4">
-                <select id="select-menu-sm" style="width: 100%" size="2" formControlName="createComp"  >
-                    <option *ngFor="let compType of createComp.compensationType" [value]="compType.compId">
-                {{compType.name}}
-                    </option>
-                    </select>
-
-
-            </div>
+        </span></p> 
     </div>
-        
-            <!-- <div class="ds-dropdown" style="width: 450px;" tabindex="0" role="menu" aria-label="w3DS Primary dropdown">
-                <div class="ds-title">Compensation Type</div>
-                <div class="ds-options" role="group" >
-                    <div class="ds-option" role="menuitem" tabindex="-1" >
-                        Option 1
-                    </div>
-                    <div class="ds-option ds-disabled" role="menuitem" tabindex="-1" aria-disabled="true">
-                        Option 2
-                    </div>
-                    <div class="ds-option" role="menuitem" tabindex="-1">
-                        Option 3
-                    </div>
-                    <div class="ds-option" role="menuitem" tabindex="-1">
-                        Option 4
-                    </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="ibm-input-group">
+                 
+            <span class="ibm-radio-wrapper">
+                <input data-init="false" class="ibm-styled-radio" id="__REPLACE_ME_21__" name="radiogrp2" type="radio" value="A" />
+                <label for="__REPLACE_ME_21__" class="ibm-field-label">Home</label>
+            </span>
+            <span class="ibm-radio-wrapper">
+                <input data-init="false" class="ibm-styled-radio" id="__REPLACE_ME_22__" name="radiogrp2" type="radio" value="B" />
+                <label for="__REPLACE_ME_22__" class="ibm-field-label">Host</label>
+            </span>
+       </span>
+           <p>
+                <label class="ibm-column-field-label"  for="countryselect">Employee Home Country:<span class="ibm-required">*</span></label>
+                <span>
+                        <select id="countryselect" formControlName="countryselect" > 
+                            <option  value="">---Select---</option>
+                            <option *ngFor="let countryCode of createComp.countryCodeMap | keyvalue" [ngValue]=countryCode>
+                                {{countryCode.value}}
+                            </option>
+                         </select> 
+                         
+                </span>
+            </p>
+            
+            <div formGroupName= "PmpData">
+                <label class="ibm-column-field-label" for="pmpseatid">Assignment PMP Seat ID:<span class="ibm-required">*</span></label>
+              <span>
+              <input type="text" id="pmpseatid" formControlName = "pmpseatid">
+              <span *ngIf="!EmpInfoForm.get('PmpData.pmpseatid').valid&&EmpInfoForm.get('PmpData.pmpseatid').touched">
+              <span *ngIf = "EmpInfoForm.get('PmpData.pmpseatid').errors['required']">PMP id field is required</span>
+              </span>
+             </span>
+            </div>   
+           <p>
+             <label  class="ibm-column-field-label" for="empvisatype">Please indicate type of Visa employee is holding ?:<span class="ibm-required">*</span></label>
+               <span>
+                    <select id="empvisatype" formControlName="empvisatype" > 
+                        <option  value="Select">---Select---</option>
+                        <option *ngFor="let visatype of createComp.visaType | keyvalue" [ngValue]=visatype>
+                            {{visatype.value}}
+                        </option>
+                     </select> 
+                     
+               </span>
+           </p>
+        <p>
+            <label class="ibm-column-field-label" for="usstay89days">Will the employee be in the US greater than 89 days ?:</label>
+            <span>
+               <div *ngFor="let us89daysstay of usstaymorethan89days">
+                <label>
+                    <input type="radio" [value]="us89daysstay"
+                    formControlName = "us89daysstay">{{us89daysstay}}
+                  </label>    
                 </div>
-            </div> -->
-        <!-- </div>
-    </div> -->
+                </span>
+            </p>
+
+    <p>
+    <button class="btn btn-primary" type="submit">Submit</button> 
+    </p>
+ 
 </form>
+
+

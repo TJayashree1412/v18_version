@@ -1,4 +1,4 @@
-export interface CompensationDTO{
+export class CompensationDTO{
         visaType : Map<String,String>;
         visaStatusMap :Map<String,String>;
         compensationType :Map<String,String>;

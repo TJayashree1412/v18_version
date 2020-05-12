@@ -18,11 +18,15 @@ export class RaiseCompRequestComponent implements OnInit {
   
   EmpInfoForm = new FormGroup({
     EmployeeInfoData: new FormGroup({
-      empserial:new FormControl(null,[Validators.required]),
-      pmpseatid:new FormControl(null,[Validators.required]),
+      empserial:new FormControl(null,[Validators.required])
+      
   }),
+  PmpData: new FormGroup({
+    pmpseatid:new FormControl(null,[Validators.required])
+}),
   empvisatype: new FormControl(),
   comptypselect:new FormControl(),
+  countryselect:new FormControl(),
   us89daysstay:new FormControl('Yes')
   
   });

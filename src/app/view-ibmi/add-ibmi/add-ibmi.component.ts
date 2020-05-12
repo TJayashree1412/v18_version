@@ -19,7 +19,7 @@ export class AddIBMIComponent implements OnInit {
   emailId: string;
   phone: string;
   faxNum: string;
-  countryCode: string;
+  country: ParameterBean;
   constructor(public administratorService: AdministratorServiceService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -27,17 +27,11 @@ export class AddIBMIComponent implements OnInit {
     this.emailId = '';
     this.phone = '';
     this.faxNum = '';
-    this.countryCode = '';
+    this.country = new ParameterBean();
     this.administratorService.getCountryMap().subscribe(resp => {
-      console.log(resp);
-      const keys = resp.headers.keys();
-      console.log(keys);
-      this.headers =  keys.map(key => `${key}: ${resp.headers.get(key)}`);
-      for (const data of resp.body) {
-        this.countryMap.push(data);
-      }
+        this.countryMap = resp.body;
   });
-    console.log('country name :', this.countryCode);
+    console.log('country name :', this.country);
   //   this.contact = this.formBuilder.group({
   //   resource: ['', Validators.required],
   //   emailId: ['', Validators.required],
@@ -48,12 +42,13 @@ export class AddIBMIComponent implements OnInit {
   }
   addContact() {
     this.ibmiContact = new IBMIContact();
-    console.log(this.contact, this.emailId, this.phone, this.faxNum, this.countryCode);
+    console.log(this.resource, this.emailId, this.phone, this.faxNum, this.country, this.country.paramId);
     this.ibmiContact.resource = this.resource;
     this.ibmiContact.emailId = this.emailId;
     this.ibmiContact.phone = this.phone;
     this.ibmiContact.faxNum = this.faxNum;
-    this.ibmiContact.countryCode = this.countryCode;
+    this.ibmiContact.country = this.country.paramId;
+    console.log('value of country:', this.ibmiContact.country );
     // this.administratorService.addIBMIContact(this.ibmiContact).subscribe(resp => {
     //   this.statusCode = resp.status;
     //   if (this.statusCode === true) {

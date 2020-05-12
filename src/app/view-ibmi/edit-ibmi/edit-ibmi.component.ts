@@ -20,7 +20,7 @@ export class EditIBMIComponent implements OnInit {
   phone: string;
   faxNum: string;
   countryName: string;
-  countryCode: ParameterBean;
+  country: ParameterBean;
   countryMap: ParameterBean[] = [];
   countryForm: FormGroup;
   form: FormGroup;
@@ -56,7 +56,7 @@ export class EditIBMIComponent implements OnInit {
       }
       console.log(this.countryMap);
       // this.form.controls.orders.patchValue(this.countryName);
-      this.form.controls.countryMap.patchValue(this.countryName);
+      // this.form.controls.countryMap.patchValue(this.countryName);
     });
     // this.countryForm = this.fb.group({
     //   countryControf(this.getOrders()).subscribe(orders => {
@@ -64,14 +64,14 @@ export class EditIBMIComponent implements OnInit {
   }
   updateContact() {
     this.ibmiContact = new IBMIContact();
-    console.log(this.resourceId,this.resource, this.emailId, this.phone, this.faxNum, this.countryCode);
+    console.log(this.resourceId, this.resource, this.emailId, this.phone, this.faxNum, this.country, this.country.paramId);
     this.ibmiContact.resourceId = this.resourceId;
     this.ibmiContact.resource = this.resource;
     this.ibmiContact.emailId = this.emailId;
     this.ibmiContact.phone = this.phone;
     this.ibmiContact.faxNum = this.faxNum;
-    this.ibmiContact.countryCode = this.countryCode.paramId;
-    console.log("this.countrycode:  ",this.countryCode,"this.countryName: ",this.countryCode.paramName);
+    this.ibmiContact.country = this.country.paramId;
+    console.log("this.countrycode:  ",this.country,"this.countryName: ",this.country.paramName);
     this.administratorService.updateIBMIContact(this.ibmiContact).subscribe(resp =>{
       this.statusCode = resp.status;
       if (this.statusCode === true) {

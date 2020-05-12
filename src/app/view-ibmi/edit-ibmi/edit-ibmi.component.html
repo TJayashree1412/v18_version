@@ -27,8 +27,8 @@
       <span style="width: 408px;">
         <!-- (change)="selectChangeHandler($event)" -->
         <!-- class="form-control" formControlName="contact" #contact  -->
-          <select id="country"  name="countryName" default="countryName" placeholder="Select Country" [(ngModel)]="countryCode" >
-            <option [ngValue]="country" *ngFor="let country of countryMap" >{{country.paramName}}</option>
+          <select id="country"  name="countryName" default="countryName" placeholder="Select Country" [(ngModel)]="country" >
+            <option [ngValue]="country" *ngFor="let country of countryMap" [selected]="countryName" >{{country.paramName}}</option>
           </select>
       </span>
   </p>

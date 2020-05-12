@@ -5,5 +5,5 @@ export class IBMIContact {
     phone: string;
     faxNum: string;
     countryName: string;
-    countryCode: string;
+    country: string;
 }

@@ -1,4 +1,4 @@
-export interface ParameterBean {
+export class ParameterBean {
     paramId: string;
     paramName: string;
 }

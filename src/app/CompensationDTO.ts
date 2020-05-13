@@ -4,5 +4,9 @@ export class CompensationDTO{
         compensationType :Map<String,String>;
         countryCodeMap :Map<String,String>;
         defaultPMPFlag :String;
-        
+        empserial:String;
+        pmpseatid:String;
+        countryCode:String;
+        compType:String;
+        visaTyp:String;
     }

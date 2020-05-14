@@ -35,6 +35,7 @@ export class RaiseCompRequestComponent implements OnInit {
   ngOnInit(): void {
     this.empserial = '';
     this.pmpseatid ='';
+    
     this.createCompensation();
     }
  
@@ -65,7 +66,7 @@ export class RaiseCompRequestComponent implements OnInit {
       this.createComp.visaTyp=this.EmpInfoForm.value.empvisatype.key;
    
       this.compService.getEmployeeDetails(this.createComp).subscribe(resp =>{
-        this.statusCode = resp.status;
+        //this.statusCode = resp.status;
         console.log('Success', this.statusCode);
         
       });

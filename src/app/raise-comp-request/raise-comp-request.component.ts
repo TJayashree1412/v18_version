@@ -15,25 +15,26 @@ export class RaiseCompRequestComponent implements OnInit {
   statusCode : number;
   errorMessage : string;
   usstaymorethan89days=['Yes','No'];
+  empserial: string;
+  pmpseatid:string;
+  
   
   EmpInfoForm = new FormGroup({
-    EmployeeInfoData: new FormGroup({
-      empserial:new FormControl(null,[Validators.required])
-      
-  }),
-  PmpData: new FormGroup({
-    pmpseatid:new FormControl(null,[Validators.required])
-}),
+  empserial:new FormControl(null,[Validators.required]),
+  pmpseatid:new FormControl(null,[Validators.required]),
   empvisatype: new FormControl(),
   comptypselect:new FormControl(),
   countryselect:new FormControl(),
   us89daysstay:new FormControl('Yes')
   
   });
+  
 
   constructor(private fb: FormBuilder,private router: Router, public compService: CompensationService) {}
  
   ngOnInit(): void {
+    this.empserial = '';
+    this.pmpseatid ='';
     
     this.createCompensation();
     }
@@ -55,7 +56,23 @@ export class RaiseCompRequestComponent implements OnInit {
   onSubmit(){
     console.log('Form submitted successfully');
     console.log(this.EmpInfoForm);
-
+    
+      this.createComp = new CompensationDTO();
+      
+      this.createComp.empserial = this.EmpInfoForm.value.empserial;
+      this.createComp.pmpseatid = this.EmpInfoForm.value.pmpseatid;
+      this.createComp.countryCode=this.EmpInfoForm.value.countryselect.key;
+      this.createComp.compType=this.EmpInfoForm.value.comptypselect.key;
+      this.createComp.visaTyp=this.EmpInfoForm.value.empvisatype.key;
+   
+      this.compService.getEmployeeDetails(this.createComp).subscribe(resp =>{
+        //this.statusCode = resp.status;
+        console.log('Success', this.statusCode);
+        
+      });
+    }
+  getEmployeeDetails(){
+    console.log('Benarji')
   }
 
 }

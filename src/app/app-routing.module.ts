@@ -37,6 +37,7 @@ import {ViewIBMIComponent} from './view-ibmi/view-ibmi.component';
 import {EditIBMIComponent} from './view-ibmi/edit-ibmi/edit-ibmi.component';
 import {AddIBMIComponent} from './view-ibmi/add-ibmi/add-ibmi.component';
 import { ViewOnboardRecordComponent } from './view-onboard-record/view-onboard-record.component';
+import { UpdateCompRequestComponent } from './update-comp-request/update-comp-request.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'Login', component: LoginComponent },
@@ -77,6 +78,7 @@ const routes: Routes = [
   {path: 'addIBMI', component: AddIBMIComponent},
   {path: 'viewOnboardRecord', component: ViewOnboardRecordComponent},
   {path: 'editOnboardRecord', component: ViewOnboardRecordComponent},
+  {path: 'updateCompRequest', component: UpdateCompRequestComponent},
 ];
 
 @NgModule({

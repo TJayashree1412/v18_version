@@ -17,7 +17,8 @@ export class RaiseCompRequestComponent implements OnInit {
   usstaymorethan89days=['Yes','No'];
   empserial: string;
   pmpseatid:string;
-  
+  flog:boolean=false;
+  respData:{}=null;
   
   EmpInfoForm = new FormGroup({
   empserial:new FormControl(null,[Validators.required]),
@@ -66,9 +67,12 @@ export class RaiseCompRequestComponent implements OnInit {
       this.createComp.visaTyp=this.EmpInfoForm.value.empvisatype.key;
    
       this.compService.getEmployeeDetails(this.createComp).subscribe(resp =>{
-        //this.statusCode = resp.status;
+        this.statusCode = resp.status;
         console.log('Success', this.statusCode);
-        
+        console.log("Responce: "+JSON.stringify(resp));
+        this.respData = resp.body;
+        this.changeFlog();
+        //this.router.navigate(['/updateCompRequest']);
       });
     }
   getEmployeeDetails(){
@@ -82,4 +86,9 @@ export class RaiseCompRequestComponent implements OnInit {
     })
   }
 
+  changeFlog(){
+    console.log('FLOG: '+this.flog);
+    this.flog=!this.flog;
+    console.log('FLOG: '+this.flog);
+  }
 }

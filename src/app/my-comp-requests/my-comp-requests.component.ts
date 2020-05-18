@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CompensationService } from '../service/compensation.service';
 import { CreateCompensation } from '../model/create-compensation';
+import { HCAMDBUser } from '../HCAMDBUser';
+import { CompensationDetailsDTO } from '../CompensationDetailsDTO';
 
 @Component({
   selector: 'app-my-comp-requests',
@@ -10,27 +12,30 @@ import { CreateCompensation } from '../model/create-compensation';
 })
 export class MyCompRequestsComponent implements OnInit {
 
-  UserBluegrp: any;
-  empSerial: any;
-  notesId: any;
-  intranetId: any;
-  constructor(private router: Router) { }
+  pemUser: HCAMDBUser;
+  comprecords: CompensationDetailsDTO[];
+  constructor(private router: Router, public compensationService: CompensationService) { }
 
   ngOnInit(): void {
     // tslint:disable-next-line: prefer-const
+    this.pemUser = new HCAMDBUser();
     let listofRoles = sessionStorage.getItem('userdata');
     // tslint:disable-next-line: prefer-const
     let json = JSON.parse(listofRoles);
     console.log('json:' , json);
-    this.UserBluegrp = json.blueGroupName;
-    this.empSerial = json.hostEmpSerial;
-    this.notesId = json.notesId;
-    this.intranetId = sessionStorage.getItem('loggeduser');
-    console.log(this.intranetId ,"        " , this.notesId, "         ",this.empSerial);
-    
+    this.pemUser.blueGroupName = json.blueGroupName;
+    this.pemUser.cnumID = json.hostEmpSerial;
+    this.pemUser.notesId = json.notesId;
+    this.pemUser.intranetID = sessionStorage.getItem('loggeduser');
+    console.log(this.pemUser.intranetID ,"        " , this.pemUser.notesId, "         ",this.pemUser.cnumID);
+    this.compensationService.getCompensationList(this.pemUser).subscribe( (resp: any) => {
+      console.log("response:",resp);
+      this.comprecords = resp.body;
+      console.log("comprecords: ",this.comprecords);
+    });
   }
 
-  createCompReq(){
+  createCompReq() {
     this.router.navigate(['/raiseCompRequest']);
   }
 }

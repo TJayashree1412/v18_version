@@ -62,9 +62,9 @@ export class RaiseCompRequestComponent implements OnInit {
       
       this.createComp.empserial = this.EmpInfoForm.value.empserial;
       this.createComp.pmpseatid = this.EmpInfoForm.value.pmpseatid;
-      // this.createComp.countryCode=this.EmpInfoForm.value.countryselect.key;
-      // this.createComp.compType=this.EmpInfoForm.value.comptypselect.key;
-      // this.createComp.visaTyp=this.EmpInfoForm.value.empvisatype.key;
+      this.createComp.countryCode=this.EmpInfoForm.value.countryselect.key;
+      this.createComp.compType=this.EmpInfoForm.value.comptypselect.key;
+      this.createComp.visaTyp=this.EmpInfoForm.value.empvisatype.key;
    
       this.compService.getEmployeeDetails(this.createComp).subscribe(resp =>{
         this.statusCode = resp.status;

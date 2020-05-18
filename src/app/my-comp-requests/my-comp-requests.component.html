@@ -5,10 +5,7 @@
 </div>
 <br/>
 <br/>
-<div style ="float: right;" class="row">
-    <p><button class="ibm-btn-pri" (click)="editCompReq()" >Edit Compensation Request</button></p>
-    </div>
-    <br/>
+
 <div class="comp-requests">
     <div class="row">
     <h2 ><b>Compensation Requests - In Progress</b></h2>
@@ -28,15 +25,8 @@
                         </tr>
                     </thead>
                     <p>Status : Draft</p>
-                    <p>Status : Initiated</p>
-                    <p>Status:Initiated-Required Information Added</p>
-                    <p>Status : Discuss</p>
-                    <p>Status : Discuss - Required Info added</p>
-                    <p>Status:Manager Accepted</p>
-                    <p>Status:Override Manager Acceptance</p>
                     <tbody >
-                       
-                        <tr *ngFor = "let comp of comprecords ">
+                        <tr *ngFor = "let comp of compDraft ">
                             <td>{{comp.empSerial}}</td>
                             <td>{{comp.hostCountrySerial}}</td>
                             <td>{{comp.firstName}}</td>
@@ -45,10 +35,92 @@
                             <td>{{comp.currentWorkLocation}}</td>
                             <td>{{comp.zip}}</td>
                             <td>{{comp.compType}}</td>
-                            <td>{{comp.compSt}}</td>
-                            
+                            <td>{{comp.compSt}}</td>   
                         </tr>
-
+                    </tbody>
+                    <p>Status : Initiated</p>
+                    <tbody >
+                        <tr *ngFor = "let comp of compInit ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>   
+                        </tr>
+                    </tbody>
+                    <p>Status:Initiated-Required Information Added</p>
+                    <tbody >
+                        <tr *ngFor = "let comp of compInitAddnInfoAdded ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>   
+                        </tr>
+                    </tbody>
+                    <p>Status : Discuss</p>
+                    <tbody >
+                        <tr *ngFor = "let comp of compDiscuss ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>   
+                        </tr>
+                    </tbody>
+                    <p>Status : Discuss - Required Info added</p>
+                    <tbody >
+                        <tr *ngFor = "let comp of compDiscussReqInfoAdded ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>   
+                        </tr>
+                    </tbody>
+                    <p>Status:Manager Accepted</p>
+                    <tbody >
+                        <tr *ngFor = "let comp of compMgrAccepted ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>   
+                        </tr>
+                    </tbody>
+                    <p>Status:Override Manager Acceptance</p>
+                    <tbody >
+                        <tr *ngFor = "let comp of compMgrAcceptanceOverriden ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>   
+                        </tr>
                     </tbody>
                     </table>
     </div>
@@ -71,11 +143,8 @@
                 </thead>
                     
                     <p>Status:Initiated-Required Information Added</p>
-                    <p>Status:Compensation For Review</p>
-                    <p>Status : Discuss - Additional Info required</p>
-                <tbody >
-                       
-                        <tr *ngFor = "let comp of comprecords ">
+                    <tbody >
+                        <tr *ngFor = "let comp of compAddnInfoReq ">
                             <td>{{comp.empSerial}}</td>
                             <td>{{comp.hostCountrySerial}}</td>
                             <td>{{comp.firstName}}</td>
@@ -84,10 +153,36 @@
                             <td>{{comp.currentWorkLocation}}</td>
                             <td>{{comp.zip}}</td>
                             <td>{{comp.compType}}</td>
-                            <td>{{comp.compSt}}</td>
-                            
+                            <td>{{comp.compSt}}</td>   
                         </tr>
-
+                    </tbody>
+                    <p>Status:Compensation For Review</p>
+                    <tbody >
+                        <tr *ngFor = "let comp of compForReview ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>   
+                        </tr>
+                    </tbody>
+                    <p>Status : Discuss - Additional Info required</p>
+                <tbody >
+                        <tr *ngFor = "let comp of compDiscussAddnInfoReq ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td> 
+                        </tr>
                  </tbody>
             </table>
     </div>
@@ -110,8 +205,7 @@
                 </thead>
                     <p>Status : Request Processed</p>
                 <tbody >
-                       
-                        <tr *ngFor = "let comp of comprecords ">
+                        <tr *ngFor = "let comp of compReqProcessed ">
                             <td>{{comp.empSerial}}</td>
                             <td>{{comp.hostCountrySerial}}</td>
                             <td>{{comp.firstName}}</td>
@@ -121,9 +215,7 @@
                             <td>{{comp.zip}}</td>
                             <td>{{comp.compType}}</td>
                             <td>{{comp.compSt}}</td>
-                            
                         </tr>
-
                  </tbody>
             </table>
     </div>
@@ -145,10 +237,22 @@
                         </tr>
                 </thead>
                     <p>Status : Rejected</p>
+                    <tbody >
+                        <tr *ngFor = "let comp of compRejected ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>   
+                        </tr>
+                    </tbody>
                     <p>Status : Archived</p>
                 <tbody >
-                       
-                        <tr *ngFor = "let comp of comprecords ">
+                        <tr *ngFor = "let comp of compArchived ">
                             <td>{{comp.empSerial}}</td>
                             <td>{{comp.hostCountrySerial}}</td>
                             <td>{{comp.firstName}}</td>
@@ -158,9 +262,7 @@
                             <td>{{comp.zip}}</td>
                             <td>{{comp.compType}}</td>
                             <td>{{comp.compSt}}</td>
-                            
                         </tr>
-
                  </tbody>
             </table>
     </div>
@@ -182,8 +284,7 @@
                         </tr>
                 </thead>
                 <tbody >
-                       
-                        <tr *ngFor = "let comp of comprecords ">
+                        <tr *ngFor = "let comp of otherCompRecords ">
                             <td>{{comp.empSerial}}</td>
                             <td>{{comp.hostCountrySerial}}</td>
                             <td>{{comp.firstName}}</td>
@@ -193,9 +294,7 @@
                             <td>{{comp.zip}}</td>
                             <td>{{comp.compType}}</td>
                             <td>{{comp.compSt}}</td>
-                            
                         </tr>
-
                  </tbody>
             </table>
     </div>

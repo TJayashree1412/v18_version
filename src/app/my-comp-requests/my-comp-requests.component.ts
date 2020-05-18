@@ -14,7 +14,7 @@ declare var jQuery: any;
 })
 export class MyCompRequestsComponent implements OnInit {
 
-  pemUser: HCAMDBUser; 
+  pemUser: HCAMDBUser;
   comprecords: CompensationDetailsDTO[];
   compDraft: CompensationDetailsDTO[];
   compInit: CompensationDetailsDTO[];
@@ -50,6 +50,7 @@ export class MyCompRequestsComponent implements OnInit {
       this.comprecords = resp.body;
       jQuery('#compReqTable').dataTable().fnDestroy();
       console.log('comprecords: ', this.comprecords);
+      this.sortCompRecords();
     }, (error: any) => {
       console.log(error, 'error');
     }, async () => {
@@ -66,7 +67,7 @@ export class MyCompRequestsComponent implements OnInit {
 }
 
   sortCompRecords() {   // sorts the comp records obtained into differents list as per comp status.
-    for (let comprecord of this.comprecords) {
+    for (const comprecord of this.comprecords) {
       if (comprecord.compType === 'Other') {
         if (comprecord.compSt === 'C') {
           comprecord.compSt = 'Current';
@@ -428,13 +429,12 @@ export class MyCompRequestsComponent implements OnInit {
                      ​​createdDt: '2020-03-04 06:20:41.462356'
                     }
    ];
+
+    this.sortCompRecords();
   }
 
   createCompReq() {
     this.router.navigate(['/raiseCompRequest']);
   }
 
-editCompReq() {
-  this.router.navigate(['/editOnboard']);
-}
 }

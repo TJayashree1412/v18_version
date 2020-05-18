@@ -5,9 +5,9 @@
     <p>
         <label class="ibm-column-field-label" for="comptypselect">Compensation Type:<span class="ibm-required">*</span></label>
         <span>
-                <select id="comptypselect"  formControlName="comptypselect" > 
+                <select id="comptypselect"  formControlName="comptypselect" (change)="changeCompensationType($event)"> 
                     <option  value="">---Select---</option>
-                    <option *ngFor="let compType of createComp.compensationType | keyvalue" [ngValue]=compType>
+                    <option  *ngFor="let compType of createComp.compensationType | keyvalue" [ngValue]=compType>
                         {{compType.value}}
                     </option>
                  </select> 
@@ -30,18 +30,21 @@
               </div>
         </span></p> 
     
-           
-      <!--  <span class="ibm-input-group">
+        
+            
+            <span  class="ibm-input-group" *ngIf="EmpInfoForm.value.comptypselect.value!='New Employee'" > 
                  
             <span class="ibm-radio-wrapper">
-                <input data-init="false" class="ibm-styled-radio" id="__REPLACE_ME_21__" name="radiogrp2" type="radio" value="A" />
-                <label for="__REPLACE_ME_21__" class="ibm-field-label">Home</label>
+                <input data-init="false" class="ibm-styled-radio" id="Home"
+                 name="radiogrp2" type="radio" value="A" />
+                <label for="Home" class="ibm-field-label">Home</label>
             </span>
             <span class="ibm-radio-wrapper">
-                <input data-init="false" class="ibm-styled-radio" id="__REPLACE_ME_22__" name="radiogrp2" type="radio" value="B" />
-                <label for="__REPLACE_ME_22__" class="ibm-field-label">Host</label>
+                <input data-init="false" class="ibm-styled-radio" id="Host" name="radiogrp2" type="radio" value="B" />
+                <label for="Host" class="ibm-field-label">Host</label>
             </span>
-       </span> -->
+       </span> 
+   
            <p>
                 <label class="ibm-column-field-label"  for="countryselect">Employee Home Country:<span class="ibm-required">*</span></label>
                 <span>
@@ -81,6 +84,20 @@
                      
                </span>
            </p>
+          
+           <span class="ibm-input-group" *ngIf="EmpInfoForm.value.comptypselect.value=='New Employee'" > 
+                 
+            <span class="ibm-radio-wrapper">
+                <input data-init="false" class="ibm-styled-radio" id="visaStatus1"
+                 name="visaStatusRadioGrp" type="radio" value="A" >Visa Status:
+             &nbsp;&nbsp; <label for="visaStatus1" class="ibm-field-label">Applying for Visa</label>
+            </span>
+            <span class="ibm-radio-wrapper">
+                <input data-init="false" class="ibm-styled-radio" id="visaStatus2" name="visaStatusRadioGrp" type="radio" checked value="B" />
+                <label for="visaStatus2" class="ibm-field-label">Currently Holding Visa</label>
+            </span>
+          </span> 
+       
            
           <!--<div class="col-sm-4" *ngIf="selectedCompType=== 'New Employee'">
             <input type="text" class="form-control" name="remark" formControlName="remark" maxlength="200" />
@@ -100,7 +117,7 @@
             
 
     <p>&nbsp;
-    <button class="ibm-btn-pri" type="submit"  (click)="getEmployeeDetails()">Submit</button>&nbsp;&nbsp;
+    <button class="ibm-btn-pri" type="submit" >Submit</button>&nbsp;&nbsp;
     <button class="ibm-btn-pri" type="submit"  (click)="getEmployeeDetails()">Close</button> 
     </p>
  

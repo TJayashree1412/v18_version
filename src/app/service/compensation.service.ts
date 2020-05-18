@@ -19,8 +19,8 @@ export class CompensationService {
   }
  
   getEmployeeDetails(createComp:any) {
-    return this.httpClient.post(this.url+"/getEmployeeDetails",createComp, {
-      observe: "response"
+    return this.httpClient.post(this.url+'/getEmployeeDetails',createComp, {
+      observe: 'response'
     })
     .pipe(catchError(this.handleError));
   }

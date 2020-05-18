@@ -1,4 +1,4 @@
-<div class="ibm-col-12-10" >
+<div class="ibm-col-12-10" *ngIf="!flog">
 <h1 class="ibm-h1">Create compensation request</h1>
 <form [formGroup]="EmpInfoForm" class ="ibm-column-form" (ngSubmit)="onSubmit()">
    
@@ -106,4 +106,6 @@
  
 </form>
 </div>
-
+<div *ngIf="flog">
+<app-update-comp-request [empData]="respData"></app-update-comp-request>
+</div>

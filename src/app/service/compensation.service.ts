@@ -33,14 +33,9 @@ export class CompensationService {
     });
   }
 
-  getCompensationList(pemUser: HCAMDBUser) { //: Observable <HttpResponse<CompensationDetailsDTO[]>> {
-    // const params = new HttpParams().set('cnumID', pemUser.cnumID).set('notesId',pemUser.notesId).set('blueGroupName',pemUser.blueGroupName[0],pemUser.blueGroupName[1]);
-    // return this.httpClient.get<CompensationDetailsDTO[]>(this.url + '/compList',  {observe: 'response'})
-    //   .pipe(catchError(this.handleError));
+  getCompensationList(pemUser: HCAMDBUser) {
     return this.httpClient.post(this.url + '/compList', pemUser, {observe: 'response'})
       .pipe(catchError(this.handleError));
-
-    // return this.responseList;
   }
 
   private handleError(error: HttpErrorResponse) {

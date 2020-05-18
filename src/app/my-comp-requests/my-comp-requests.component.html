@@ -1,6 +1,207 @@
 <div class="ibm-col-12-10">
 <h1 class="page-header"> My Comp requests</h1>
-<div style ="float: right;" class="ibm-col-12-10">
+<div style ="float: right;" class="row">
 <p><button class="ibm-btn-pri" (click)="createCompReq()" >Create Compensation Request</button></p>
 </div>
+<br/>
+<br/>
+<div style ="float: right;" class="row">
+    <p><button class="ibm-btn-pri" (click)="editCompReq()" >Edit Compensation Request</button></p>
+    </div>
+    <br/>
+<div class="comp-requests">
+    <div class="row">
+    <h2 ><b>Compensation Requests - In Progress</b></h2>
+    <table id="compTableInProgress"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
+                    class="ibm-data-table ibm-altrows ibm-padding-small">
+                    <thead>
+                        <tr>
+                            <th >Employee Serial</th>
+                            <th >Host Serial</th>
+                            <th >First Name</th>
+                            <th >Last Name</th>
+                            <th >Email ID</th>
+                            <th >Current Work Location City</th>
+                            <th >Current Zip Code</th>
+                            <th>Compensation Type</th>
+                            <th>Record Status</th>
+                        </tr>
+                    </thead>
+                    <p>Status : Draft</p>
+                    <p>Status : Initiated</p>
+                    <p>Status:Initiated-Required Information Added</p>
+                    <p>Status : Discuss</p>
+                    <p>Status : Discuss - Required Info added</p>
+                    <p>Status:Manager Accepted</p>
+                    <p>Status:Override Manager Acceptance</p>
+                    <tbody >
+                       
+                        <tr *ngFor = "let comp of comprecords ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>
+                            
+                        </tr>
+
+                    </tbody>
+                    </table>
+    </div>
+    <div class="row">
+        <h2 ><b>Compensation Requests - Active</b></h2>
+            <table id="compTableActive"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
+                    class="ibm-data-table ibm-altrows ibm-padding-small">
+               <thead>
+                        <tr>
+                            <th >Employee Serial</th>
+                            <th >Host Serial</th>
+                            <th >First Name</th>
+                            <th >Last Name</th>
+                            <th >Email ID</th>
+                            <th >Current Work Location City</th>
+                            <th >Current Zip Code</th>
+                            <th>Compensation Type</th>
+                            <th>Record Status</th>
+                        </tr>
+                </thead>
+                    
+                    <p>Status:Initiated-Required Information Added</p>
+                    <p>Status:Compensation For Review</p>
+                    <p>Status : Discuss - Additional Info required</p>
+                <tbody >
+                       
+                        <tr *ngFor = "let comp of comprecords ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>
+                            
+                        </tr>
+
+                 </tbody>
+            </table>
+    </div>
+    <div class="row">
+        <h2 ><b>Compensation Requests - Completed</b></h2>
+            <table id="compTableCompleted"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
+                    class="ibm-data-table ibm-altrows ibm-padding-small">
+               <thead>
+                        <tr>
+                            <th >Employee Serial</th>
+                            <th >Host Serial</th>
+                            <th >First Name</th>
+                            <th >Last Name</th>
+                            <th >Email ID</th>
+                            <th >Current Work Location City</th>
+                            <th >Current Zip Code</th>
+                            <th>Compensation Type</th>
+                            <th>Record Status</th>
+                        </tr>
+                </thead>
+                    <p>Status : Request Processed</p>
+                <tbody >
+                       
+                        <tr *ngFor = "let comp of comprecords ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>
+                            
+                        </tr>
+
+                 </tbody>
+            </table>
+    </div>
+    <div class="row">
+        <h2 ><b>Compensation Requests - In-Active</b></h2>
+            <table id="compTableInActive"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
+                    class="ibm-data-table ibm-altrows ibm-padding-small">
+               <thead>
+                        <tr>
+                            <th >Employee Serial</th>
+                            <th >Host Serial</th>
+                            <th >First Name</th>
+                            <th >Last Name</th>
+                            <th >Email ID</th>
+                            <th >Current Work Location City</th>
+                            <th >Current Zip Code</th>
+                            <th>Compensation Type</th>
+                            <th>Record Status</th>
+                        </tr>
+                </thead>
+                    <p>Status : Rejected</p>
+                    <p>Status : Archived</p>
+                <tbody >
+                       
+                        <tr *ngFor = "let comp of comprecords ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>
+                            
+                        </tr>
+
+                 </tbody>
+            </table>
+    </div>
+    <div class="row">
+        <h2 ><b>Other Compensation Requests</b></h2>
+            <table id="compTableOthers"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
+                    class="ibm-data-table ibm-altrows ibm-padding-small">
+               <thead>
+                        <tr>
+                            <th >Employee Serial</th>
+                            <th >Host Serial</th>
+                            <th >First Name</th>
+                            <th >Last Name</th>
+                            <th >Email ID</th>
+                            <th >Current Work Location City</th>
+                            <th >Current Zip Code</th>
+                            <th>Compensation Type</th>
+                            <th>Record Status</th>
+                        </tr>
+                </thead>
+                <tbody >
+                       
+                        <tr *ngFor = "let comp of comprecords ">
+                            <td>{{comp.empSerial}}</td>
+                            <td>{{comp.hostCountrySerial}}</td>
+                            <td>{{comp.firstName}}</td>
+                            <td>{{comp.lastName}}</td>
+                            <td>{{comp.emailID}}</td>
+                            <td>{{comp.currentWorkLocation}}</td>
+                            <td>{{comp.zip}}</td>
+                            <td>{{comp.compType}}</td>
+                            <td>{{comp.compSt}}</td>
+                            
+                        </tr>
+
+                 </tbody>
+            </table>
+    </div>
+                   
+                   
+                    
+</div>
+
 </div>

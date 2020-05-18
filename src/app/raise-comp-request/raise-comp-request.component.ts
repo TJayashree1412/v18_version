@@ -54,7 +54,7 @@ export class RaiseCompRequestComponent implements OnInit {
    
   }
  
-  async onSubmit(){
+   onSubmit(){
     console.log('Form submitted successfully');
     console.log(this.EmpInfoForm);
     

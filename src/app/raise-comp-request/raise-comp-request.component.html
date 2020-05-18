@@ -16,7 +16,7 @@
                 </span>
     </p>
     
-        <p>
+<p>
             <label class="ibm-column-field-label" for="empserial">IBM Employee Serial:<span class="ibm-required">*</span></label>
         <span>
             <input type="text" id="empserial" formControlName = "empserial">
@@ -28,11 +28,11 @@
                     Employee Serial is required
                 </div>
               </div>
-        </span></p> 
+        </span> 
     
-        
-            
-            <span  class="ibm-input-group" *ngIf="EmpInfoForm.value.comptypselect.value!='New Employee'" > 
+    </p>    
+            <div *ngIf="EmpInfoForm.value.comptypselect!='null'">
+            <span class="ibm-input-group" *ngIf="EmpInfoForm.value.comptypselect.value!='New Employee'" > 
                  
             <span class="ibm-radio-wrapper">
                 <input data-init="false" class="ibm-styled-radio" id="Home"
@@ -44,7 +44,8 @@
                 <label for="Host" class="ibm-field-label">Host</label>
             </span>
        </span> 
-   
+    </div>
+
            <p>
                 <label class="ibm-column-field-label"  for="countryselect">Employee Home Country:<span class="ibm-required">*</span></label>
                 <span>
@@ -58,7 +59,7 @@
                 </span>
             </p>
             
-            
+                <p>
                 <label class="ibm-column-field-label" for="pmpseatid">Assignment PMP Seat ID:<span class="ibm-required">*</span></label>
               <span>
               <input type="text" id="pmpseatid" formControlName = "pmpseatid">
@@ -71,7 +72,7 @@
                 </div>
               </div>
              </span>
-              
+            </p>
            <p>
              <label  class="ibm-column-field-label" for="empvisatype">Please indicate type of Visa employee is holding ?:<span class="ibm-required">*</span></label>
                <span>
@@ -85,6 +86,7 @@
                </span>
            </p>
           
+           <div *ngIf="EmpInfoForm.value.comptypselect!='null'">
            <span class="ibm-input-group" *ngIf="EmpInfoForm.value.comptypselect.value=='New Employee'" > 
                  
             <span class="ibm-radio-wrapper">
@@ -97,8 +99,8 @@
                 <label for="visaStatus2" class="ibm-field-label">Currently Holding Visa</label>
             </span>
           </span> 
-       
-           
+           </div>
+           <br/>
           <!--<div class="col-sm-4" *ngIf="selectedCompType=== 'New Employee'">
             <input type="text" class="form-control" name="remark" formControlName="remark" maxlength="200" />
           </div>-->

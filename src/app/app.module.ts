@@ -51,6 +51,8 @@ import { AddIBMIComponent } from './view-ibmi/add-ibmi/add-ibmi.component';
 import { ModalModule } from './modal';
 import { ViewOnboardRecordComponent } from './view-onboard-record/view-onboard-record.component';
 import { EditOnboardRecordComponent } from './edit-onboard-record/edit-onboard-record.component';
+import { UpdateCompRequestComponent } from './update-comp-request/update-comp-request.component';
+
 
 @NgModule({
   declarations: [
@@ -96,7 +98,8 @@ import { EditOnboardRecordComponent } from './edit-onboard-record/edit-onboard-r
     EditIBMIComponent,
     AddIBMIComponent,
     ViewOnboardRecordComponent,
-    EditOnboardRecordComponent
+    EditOnboardRecordComponent,
+    UpdateCompRequestComponent,
   ],
   imports: [
     BrowserModule,

@@ -54,7 +54,7 @@ export class RaiseCompRequestComponent implements OnInit {
    
   }
  
-  onSubmit(){
+   onSubmit(){
     console.log('Form submitted successfully');
     console.log(this.EmpInfoForm);
     
@@ -78,6 +78,14 @@ export class RaiseCompRequestComponent implements OnInit {
   getEmployeeDetails(){
     console.log('Benarji')
   }
+
+  changeCompensationType(e) {
+    console.log(e.value)
+    this.EmpInfoForm.value.comptypselect.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
   changeFlog(){
     console.log('FLOG: '+this.flog);
     this.flog=!this.flog;

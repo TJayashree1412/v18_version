@@ -19,8 +19,8 @@ export class CompensationService {
   constructor(private httpClient: HttpClient) {
     this.url = 'http://localhost:8080/USHCAM';
   }
-
-  getEmployeeDetails(createComp: any) {
+ 
+   getEmployeeDetails(createComp: any) {
     return this.httpClient.post(this.url +'/getEmployeeDetails', createComp, {
       observe: 'response'
     })

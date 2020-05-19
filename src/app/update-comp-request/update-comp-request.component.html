@@ -1,1 +1,67 @@
-<p>update-comp-request works!</p>
+
+<html>
+    <body>
+    
+    <div class="ibm-col-12-10">
+        <p><span style="font-weight:bold;font-size: larger;color: #4178BE;">My comp requests</span></p>
+        
+        <p><span class="ibm-required" style="font-weight:bold;font-size: large;">IBM Confidential</span></p>
+        <br>
+        
+        <form [formGroup]="UpdateEmpForm" class ="ibm-column-form" (ngSubmit)="onSubmit()">
+            <hr>
+            <p><span style="font-weight:bold;font-size: larger;color: #4178BE;">Employee Information</span></p>
+            <hr>
+            <hr>
+            <p><span style="font-weight:bold;font-size: larger;color: #4178BE;">Band, Job Family, JRSS & PMR Details</span></p>
+            <hr>
+
+            <div data-widget="dyntabs" class="ibm-graphic-tabs ibm-graphic-tabs--colored" >
+                <div class="ibm-tab-section" >
+                    <ul class="ibm-tabs ibm-background-blue-70 ibm-border-blue-20 ibm-textcolor-white-core" role="tablist">
+                        <li><a   role="tab" (click)="toggleShow(1)" [attr.aria-selected]="hLight_value">Employee Information</a></li>
+                        <li><a   role="tab" (click)="toggleShow(2)"[attr.aria-selected]="hLight_value1">Targeted US Project Details</a></li>
+                        <li><a   role="tab"(click)="toggleShow(3)"[attr.aria-selected]="hLight_value2">Location Details</a></li>
+                    </ul>
+                </div>
+                <!-- START Employee Info TAB -->
+                <div *ngIf="isShown" id="usHcamAssociate"  class="ibm-tabs-content" >
+                    <p><span style="font-weight:bold;font-size: larger;color: #4178BE;">Employee Information</span></p>
+                    <hr>
+                    <table>
+                        <tr>
+                            <td ><p><label class="ibm-column-field-label" for="empserial" style="font-size:medium;color: #006D5D;font-weight: bold;">Employee Serial:</label>
+                                <span>
+                                    <input type="text" id="empserial" formControlName = "empserial">
+                                </span></p> 
+                            </td>&nbsp;&nbsp;
+                            <td ><p><label class="ibm-column-field-label" for="emphomecountry" style="font-size:medium;color: #006D5D;font-weight: bold;">Employee Home Country:</label>
+                                <span>
+                                    <input type="text" id="emphomecountry" formControlName = "emphomecountry">
+                                </span></p> 
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- END EMPLOYEE INFO TAB -->
+                <!-- START Targeted US Project Details TAB -->
+                <div *ngIf="isShown1" id="projectDetails" class="ibm-tabs-content">
+                    <p><span style="font-weight:bold;font-size: larger;color: #4178BE;">
+                        Targeted US Project Details</span></p>
+                    <hr>
+                </div>
+                <!-- END Targeted US Project Details TAB -->
+                <!-- START Location Details TAB -->
+                <div *ngIf="isShown2" id="onboard" class="ibm-tabs-content">
+                    <p><span style="font-weight:bold;font-size: larger;color: #4178BE;">Location Details</span></p>
+                    <hr>
+                </div>
+                <!-- END Location Details TAB -->
+            </div>
+            <button class="ibm-btn-pri" type="submit">save</button>&nbsp;&nbsp;
+            <button class="ibm-btn-pri" type="submit">Submit</button>&nbsp;&nbsp;
+            <button class="ibm-btn-pri" type="submit">Close</button>
+        </form>
+    </div>
+    </body>
+    </html>

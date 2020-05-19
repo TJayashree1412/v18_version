@@ -1,3 +1,4 @@
+
 <div class="ibm-col-12-10">
 <h1 class="page-header"> My Comp requests</h1>
 <div style ="float: right;" class="row">
@@ -5,10 +6,14 @@
 </div>
 <br/>
 <br/>
+<br/>
 
 <div class="comp-requests">
-    <div class="row">
-    <h2 ><b>Compensation Requests - In Progress</b></h2>
+    <div class="row"  data-widget="showhide" data-type="panel" class="ibm-show-hide ibm-alternate" data-open="true">
+    
+        <h2 ><b>Compensation Requests - In Progress</b></h2>
+        <div data-open="true">
+    <div class="ibm-container-body"  >
     <table id="compTableInProgress"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
                     class="ibm-data-table ibm-altrows ibm-padding-small">
                     <thead>
@@ -123,9 +128,12 @@
                         </tr>
                     </tbody>
                     </table>
+                </div>
     </div>
-    <div class="row">
+    </div>
+    <div class="row" data-widget="showhide" data-type="panel" class="ibm-show-hide">
         <h2 ><b>Compensation Requests - Active</b></h2>
+        <div class="ibm-container-body">
             <table id="compTableActive"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
                     class="ibm-data-table ibm-altrows ibm-padding-small">
                <thead>
@@ -185,9 +193,11 @@
                         </tr>
                  </tbody>
             </table>
+        </div>
     </div>
-    <div class="row">
+    <div class="row" data-widget="showhide" data-type="panel" class="ibm-show-hide">
         <h2 ><b>Compensation Requests - Completed</b></h2>
+        <div class="ibm-container-body">
             <table id="compTableCompleted"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
                     class="ibm-data-table ibm-altrows ibm-padding-small">
                <thead>
@@ -218,9 +228,11 @@
                         </tr>
                  </tbody>
             </table>
+        </div>
     </div>
-    <div class="row">
+    <div class="row" data-widget="showhide" data-type="panel" class="ibm-show-hide">
         <h2 ><b>Compensation Requests - In-Active</b></h2>
+        <div class="ibm-container-body">
             <table id="compTableInActive"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
                     class="ibm-data-table ibm-altrows ibm-padding-small">
                <thead>
@@ -265,9 +277,11 @@
                         </tr>
                  </tbody>
             </table>
+        </div>
     </div>
-    <div class="row">
+    <div class="row" data-widget="showhide" data-type="panel" class="ibm-show-hide">
         <h2 ><b>Other Compensation Requests</b></h2>
+        <div class="ibm-container-body">
             <table id="compTableOthers"  data-widget="datatable" data-column-defs='[{"targets":"no-sort","orderable":false}]' data-order='[]' data-info="false" data-ordering="false" data-paging="false" data-searching="false"
                     class="ibm-data-table ibm-altrows ibm-padding-small">
                <thead>
@@ -297,6 +311,7 @@
                         </tr>
                  </tbody>
             </table>
+        </div>
     </div>
                    
                    

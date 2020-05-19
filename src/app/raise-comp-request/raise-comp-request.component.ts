@@ -59,7 +59,7 @@ export class RaiseCompRequestComponent implements OnInit {
  
    onSubmit(){
     this.formSubmitAttempt = true;
-     if(this.EmpInfoForm.valid){
+  
     console.log('Form submitted successfully');
     console.log(this.EmpInfoForm);
     
@@ -80,7 +80,6 @@ export class RaiseCompRequestComponent implements OnInit {
         //this.router.navigate(['/updateCompRequest']);
       });
     }
-   }
    isFieldValid(field: string) {
     return (!this.EmpInfoForm.get(field).valid && this.EmpInfoForm.get(field).touched) ||
       (this.EmpInfoForm.get(field).untouched && this.formSubmitAttempt);

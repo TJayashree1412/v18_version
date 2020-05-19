@@ -19,13 +19,16 @@ export class RaiseCompRequestComponent implements OnInit {
   pmpseatid:string;
   flog:boolean=false;
   respData:{}=null;
+  formSubmitAttempt: boolean;
+
   
   EmpInfoForm = new FormGroup({
   empserial:new FormControl(null,[Validators.required]),
   pmpseatid:new FormControl(null,[Validators.required]),
-  empvisatype: new FormControl(),
-  comptypselect:new FormControl(),
-  countryselect:new FormControl(),
+  empvisatype: new FormControl(null,[Validators.required]),
+  comptypselect:new FormControl(null,[Validators.required]),
+  countryselect:new FormControl(null,[Validators.required]),
+  HomeorHost:new FormControl(null,[Validators.required]),
   us89daysstay:new FormControl('Yes')
   
   });
@@ -55,6 +58,8 @@ export class RaiseCompRequestComponent implements OnInit {
   }
  
    onSubmit(){
+    this.formSubmitAttempt = true;
+     if(this.EmpInfoForm.valid){
     console.log('Form submitted successfully');
     console.log(this.EmpInfoForm);
     
@@ -75,8 +80,19 @@ export class RaiseCompRequestComponent implements OnInit {
         //this.router.navigate(['/updateCompRequest']);
       });
     }
-  getEmployeeDetails(){
+   }
+   isFieldValid(field: string) {
+    return (!this.EmpInfoForm.get(field).valid && this.EmpInfoForm.get(field).touched) ||
+      (this.EmpInfoForm.get(field).untouched && this.formSubmitAttempt);
+  }
+ 
+
+ /* getEmployeeDetails(){
     console.log('Benarji')
+  }*/
+  close(){
+    this.EmpInfoForm.reset();
+  this.formSubmitAttempt = false;
   }
 
   changeCompensationType(e) {

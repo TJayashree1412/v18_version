@@ -5,43 +5,60 @@
     <p>
         <label class="ibm-column-field-label" for="comptypselect">Compensation Type:<span class="ibm-required">*</span></label>
         <span>
-                <select id="comptypselect"  formControlName="comptypselect" > 
+                <select id="comptypselect"  formControlName="comptypselect" (change)="changeCompensationType($event)"> 
                     <option  value="">---Select---</option>
-                    <option *ngFor="let compType of createComp.compensationType | keyvalue" [ngValue]=compType>
+                    <option  *ngFor="let compType of createComp.compensationType | keyvalue" [ngValue]=compType>
                         {{compType.value}}
                     </option>
                  </select> 
+                 <div *ngIf="((EmpInfoForm.get('comptypselect').invalid && EmpInfoForm.get('comptypselect').touched) ||
+                 (EmpInfoForm.get('comptypselect').untouched && this.formSubmitAttempt))">
+                <div class="error-msg" *ngIf="EmpInfoForm.get('comptypselect').errors.required">
+                    Compensation Type is required
+                </div>
+              </div>
                  <a class="ibm-information-link" href="javascript: alert('a)New Employee - Select this if the US HCAM employee is traveling from Home Country to US on the start of assignment in the US. \n\n b)Location Transfer - Select this if a US HCAM employee is already in the US on an existing assignment and is either \'starting on a new assignment for a new client and/or changing work location\'.\n\n c)Band Progression - Select this if the US HCAM employee has received a solid band or a sub-band promotion in the US. Please raise this request only if the promotion has been completed and is visible in Workday.\n\n d)Other - Please reach out to\'ushcamcompensation@ibm.com\' for a discussion before using this Compensation Type to raise a compensation request. Any request raised under this Compensation Type without prior approval from the US HCAM Compensation Team will be questionable and may be delayed for processing.')"></a>
                  
                 </span>
     </p>
     
-        <p>
+<p>
             <label class="ibm-column-field-label" for="empserial">IBM Employee Serial:<span class="ibm-required">*</span></label>
         <span>
             <input type="text" id="empserial" formControlName = "empserial">
          <!--   <span *ngIf="!EmpInfoForm.get('EmployeeInfoData.empserial').valid&&EmpInfoForm.get('EmployeeInfoData.empserial').touched">
             <span *ngIf = "EmpInfoForm.get('EmployeeInfoData.empserial').errors['required']">Emp Serial field is required</span>
             </span> -->
-            <div *ngIf="EmpInfoForm.get('empserial').invalid && EmpInfoForm.get('empserial').touched">
-                <div *ngIf="EmpInfoForm.get('empserial').errors.required">
+            <div *ngIf="((EmpInfoForm.get('empserial').invalid && EmpInfoForm.get('empserial').touched) ||
+            (EmpInfoForm.get('empserial').untouched && this.formSubmitAttempt))">
+                <div class="error-msg" *ngIf="EmpInfoForm.get('empserial').errors.required">
                     Employee Serial is required
                 </div>
               </div>
-        </span></p> 
+        </span> 
     
-           
-      <!--  <span class="ibm-input-group">
+    </p>    
+            <div *ngIf="!!EmpInfoForm.value.comptypselect">
+            <span class="ibm-input-group" *ngIf="EmpInfoForm.value.comptypselect.value!='New Employee'" > 
                  
             <span class="ibm-radio-wrapper">
-                <input data-init="false" class="ibm-styled-radio" id="__REPLACE_ME_21__" name="radiogrp2" type="radio" value="A" />
-                <label for="__REPLACE_ME_21__" class="ibm-field-label">Home</label>
+                <input data-init="false" class="ibm-styled-radio" id="Home"
+                 name="radiogrp2" formControlName="HomeorHost" type="radio" value="Home" />
+                <label for="Home" class="ibm-field-label">Home</label>
             </span>
             <span class="ibm-radio-wrapper">
-                <input data-init="false" class="ibm-styled-radio" id="__REPLACE_ME_22__" name="radiogrp2" type="radio" value="B" />
-                <label for="__REPLACE_ME_22__" class="ibm-field-label">Host</label>
+                <input data-init="false" class="ibm-styled-radio" id="Host" name="radiogrp2"  formControlName="HomeorHost" type="radio" value="Host" />
+                <label for="Host" class="ibm-field-label">Host</label>
             </span>
-       </span> -->
+            <div *ngIf="((EmpInfoForm.get('HomeorHost').invalid && EmpInfoForm.get('HomeorHost').touched) ||
+            (EmpInfoForm.get('HomeorHost').untouched && this.formSubmitAttempt))">
+                <div class="error-msg" *ngIf="EmpInfoForm.get('HomeorHost').errors.required">
+                    Please select the radio of Employee serial
+                </div>
+            </div>       
+       </span> 
+    </div>
+
            <p>
                 <label class="ibm-column-field-label"  for="countryselect">Employee Home Country:<span class="ibm-required">*</span></label>
                 <span>
@@ -51,24 +68,31 @@
                                 {{countryCode.value}}
                             </option>
                          </select> 
+                         <div *ngIf="((EmpInfoForm.get('countryselect').invalid && EmpInfoForm.get('countryselect').touched) ||
+                 (EmpInfoForm.get('countryselect').untouched && this.formSubmitAttempt))">
+                <div class="error-msg" *ngIf="EmpInfoForm.get('countryselect').errors.required">
+                    Employee Home Country is required
+                </div>
+              </div>
                          
                 </span>
             </p>
             
-            
+                <p>
                 <label class="ibm-column-field-label" for="pmpseatid">Assignment PMP Seat ID:<span class="ibm-required">*</span></label>
               <span>
               <input type="text" id="pmpseatid" formControlName = "pmpseatid">
            <!--   <span *ngIf="!EmpInfoForm.get('PmpData.pmpseatid').valid&&EmpInfoForm.get('PmpData.pmpseatid').touched">
               <span *ngIf = "EmpInfoForm.get('PmpData.pmpseatid').errors['required']">PMP id field is required</span>
               </span>-->
-              <div *ngIf="EmpInfoForm.get('pmpseatid').invalid && EmpInfoForm.get('pmpseatid').touched">
-                <div *ngIf="EmpInfoForm.get('pmpseatid').errors.required">
+              <div *ngIf="((EmpInfoForm.get('pmpseatid').invalid && EmpInfoForm.get('pmpseatid').touched) ||
+                 (EmpInfoForm.get('pmpseatid').untouched && this.formSubmitAttempt))">
+                <div class="error-msg" *ngIf="EmpInfoForm.get('pmpseatid').errors.required">
                     PMP seat Id is required
                 </div>
               </div>
              </span>
-              
+            </p>
            <p>
              <label  class="ibm-column-field-label" for="empvisatype">Please indicate type of Visa employee is holding ?:<span class="ibm-required">*</span></label>
                <span>
@@ -78,10 +102,30 @@
                             {{visatype.value}}
                         </option>
                      </select> 
-                     
+                     <div *ngIf="((EmpInfoForm.get('empvisatype').invalid && EmpInfoForm.get('empvisatype').touched) ||
+                 (EmpInfoForm.get('empvisatype').untouched && this.formSubmitAttempt))">
+                <div class="error-msg" *ngIf="EmpInfoForm.get('empvisatype').errors.required">
+                    Visa Type is required
+                    </div>
+                    </div>
                </span>
            </p>
-           
+          
+           <div *ngIf="!!EmpInfoForm.value.comptypselect">
+           <span class="ibm-input-group" *ngIf="EmpInfoForm.value.comptypselect.value=='New Employee'" > 
+                 
+            <span class="ibm-radio-wrapper">
+                <input data-init="false" class="ibm-styled-radio" id="visaStatus1"
+                 name="visaStatusRadioGrp" type="radio" value="A" >Visa Status:
+             &nbsp;&nbsp; <label for="visaStatus1" class="ibm-field-label">Applying for Visa</label>
+            </span>
+            <span class="ibm-radio-wrapper">
+                <input data-init="false" class="ibm-styled-radio" id="visaStatus2" name="visaStatusRadioGrp" type="radio" checked value="B" />
+                <label for="visaStatus2" class="ibm-field-label">Currently Holding Visa</label>
+            </span>
+          </span> 
+           </div>
+           <br/>
           <!--<div class="col-sm-4" *ngIf="selectedCompType=== 'New Employee'">
             <input type="text" class="form-control" name="remark" formControlName="remark" maxlength="200" />
           </div>-->
@@ -100,8 +144,8 @@
             
 
     <p>&nbsp;
-    <button class="ibm-btn-pri" type="submit"  (click)="getEmployeeDetails()">Submit</button>&nbsp;&nbsp;
-    <button class="ibm-btn-pri" type="submit"  (click)="getEmployeeDetails()">Close</button> 
+    <button class="ibm-btn-pri" type="submit" >Submit</button>&nbsp;&nbsp;
+    <button class="ibm-btn-pri" type="submit"  (click)="close()">Close</button> 
     </p>
  
 </form>

@@ -17,7 +17,7 @@ export class RaiseCompRequestComponent implements OnInit {
   usstaymorethan89days=['Yes','No'];
   empserial: string;
   pmpseatid:string;
-  flog:boolean=false;
+  // flog:boolean=false;
   respData:{}=null;
   formSubmitAttempt: boolean;
 
@@ -76,8 +76,8 @@ export class RaiseCompRequestComponent implements OnInit {
         console.log('Success', this.statusCode);
         console.log("Responce: "+JSON.stringify(resp));
         this.respData = resp.body;
-        this.changeFlog();
-        //this.router.navigate(['/updateCompRequest']);
+        // this.changeFlog();
+        this.router.navigate(['/updateCompRequest'], { state: this.respData });
       });
     }
    isFieldValid(field: string) {
@@ -101,9 +101,9 @@ export class RaiseCompRequestComponent implements OnInit {
     })
   }
 
-  changeFlog(){
-    console.log('FLOG: '+this.flog);
-    this.flog=!this.flog;
-    console.log('FLOG: '+this.flog);
-  }
+  // changeFlog(){
+  //   console.log('FLOG: '+this.flog);
+  //   this.flog=!this.flog;
+  //   console.log('FLOG: '+this.flog);
+  // }
 }

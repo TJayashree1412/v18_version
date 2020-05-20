@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CompensationDTO } from '../CompensationDTO';
 
 @Component({
@@ -8,7 +9,8 @@ import { CompensationDTO } from '../CompensationDTO';
   styleUrls: ['./update-comp-request.component.css']
 })
 export class UpdateCompRequestComponent implements OnInit {
-  @Input() empData: CompensationDTO;
+  // @Input() empData: CompensationDTO;
+  empData:{}=null;
   isShown: boolean = false ; // hidden by default
   isShown1: boolean = false ;
   isShown2: boolean = false ;
@@ -25,7 +27,11 @@ export class UpdateCompRequestComponent implements OnInit {
     
     });
 
-  constructor() { }
+  constructor(private router: Router) { 
+    console.log("Constructor() called...!")
+    console.log(this.router.getCurrentNavigation().extras.state);
+    this.empData = this.router.getCurrentNavigation().extras.state;
+  }
 
   ngOnInit(): void {
     this.isShown = true;
@@ -34,7 +40,8 @@ export class UpdateCompRequestComponent implements OnInit {
   }
 
   getEmployeeDetails(){
-    console.log('getEmployeeDetails(): '+JSON.stringify(this.empData))
+    console.log('getEmployeeDetails() Starts---- ');
+    console.log('getEmployeeDetails():--- '+JSON.stringify(this.empData))
   }
 
   toggleShow(index:any) {

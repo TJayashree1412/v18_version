@@ -1,12 +1,13 @@
 export class CompensationDetailsDTO {
     // private String ID;
+
 	// private String oesPWWage;
 	// private String oesURL;
 	// private String oesSalRange;
-	// private String count;	
+	// private String count;
 	obId: string;
 	// private String empDocId;
-	// private String delgDocId;	
+	// private String delgDocId;
 	compId: string;
 	// private String isBandprog;
 	// private String geoTier;
@@ -26,40 +27,40 @@ export class CompensationDetailsDTO {
 	// private String highLow;
 	// private String isCpp;
 	// private String isLOAHire;
-	// private String isHotSkill;	
+	// private String isHotSkill;
 	// private String isItdOrIts;
 	// private String isBonus;
 	// private String isIpl;
-	// private String lc50Miles; 
+	// private String lc50Miles;
 	// private String offerName;
 	empSerial: string;
-	empId6Digit: string;  
+	// empId6Digit: string;
 	firstName: string;
 	lastName: string;
 	middleName: string;
 	emailID: string;
-	pemSerail: string;
-	actualWorkLocationCity: string;
-	actualWorkCounty: string;
-	actualWorkState: string;
+	// pemSerail: string;
+	// actualWorkLocationCity: string;
+	// actualWorkCounty: string;
+	// actualWorkState: string;
 	currentWorkLocation: string;
-	currentClient: string;
-	oldClient: string;
+	// currentClient: string;
+	// oldClient: string;
 	compStatus: string;
-	compStatusName: string;
-	obStatus: string;
-	obStatusName: string;
+	// compStatusName: string;
+	// obStatus: string;
+	// obStatusName: string;
 	compSt: string;
-	city: string;
-	county: string;
-	visaType: string;
-	pmpSeatId: string;
+	// city: string;
+	// county: string;
+	// visaType: string;
+	// pmpSeatId: string;
 	// private String emplt89;
 	// private String curreEmployer;
 	// private String reqCreatedEmail;
 	// private String reqCreatedName;
 	// private String reqCreatedSerial;
-	// private String reqCreatedNotesID;	
+	// private String reqCreatedNotesID;
 	// private String jobTitle;
 	// private String eduTraining;
 	// private String itExeperience;
@@ -102,19 +103,19 @@ export class CompensationDetailsDTO {
 	// private String bandLevel;
 	// private String bandName;
 	compType: string;
-	compTypeName: string;
-	recSt: string;
+	// compTypeName: string;
+	// recSt: string;
 	// private String compRep;
 	// private String compRepId;
 	// private Date compCalDate;
 	// private String insContr;
-	createdBy: string;
-	updatedBy: string;
-	ctdTmsp: string;
-	updateddt: string;
+	// createdBy: string;
+	// updatedBy: string;
+	// ctdTmsp: string;
+	// updateddt: string;
 	createdDt: string;
-	verifiedby: string;
-	verifiedStatus: string;	
+	// verifiedby: string;
+	// verifiedStatus: string;
 	// private Onboard saveObrecord;
 	// private Location saveUSTLocrecord;
 	// private Location saveUSWLocrecord;
@@ -134,18 +135,18 @@ export class CompensationDetailsDTO {
 	// private String actionBy;
 	// private String actionDesc;
 	// private Timestamp actionDt;
-	// private IBMAssociate ibmAssoc;	
-	
-	// private String newCity;	
-	// private String newCounty; 
+	// private IBMAssociate ibmAssoc;
+
+	// private String newCity;
+	// private String newCounty;
 	// private String newState;
 	// private String newBasSalEnc;
 	// private String newGeoName;
 	// private String geoName;
-	// private String ctdUpdDt; 
+	// private String ctdUpdDt;
 	// private String visaStatus;
-	
-	// private Date calLCADate; 
+
+	// private Date calLCADate;
 	// private String areaTitle;
 	// private String oesOccupation;
 	// private String oesPWLevel;
@@ -157,12 +158,12 @@ export class CompensationDetailsDTO {
 	// private String lcaTo;
 	// private String lcaCc;
 	// private String lcaUser;
-	 
+
 	// private Date oesDate;
 	// private Date classiDate;
 	// private Date minDate;
 	// private Date formulaDate;
-	// private String abnormalCal; 
+	// private String abnormalCal;
 	// private String dataSheetId;
 	// private Date reqCtdDate;
 	// private String currentCity;
@@ -173,7 +174,7 @@ export class CompensationDetailsDTO {
 	// private String homeState;
 	// private String pemStatus;
 	// private String mailSentDt;
-	// private String mgrEmailId;	
+	// private String mgrEmailId;
 	// private String archReason;
 	// private String deptCode;
 	// private String bonusExists;
@@ -181,14 +182,14 @@ export class CompensationDetailsDTO {
 	// private String salEffChange;
 	// private String changeComment;
 	// private String seleJobFamily;
-	// private String futCompChgFlag;	
-	// private ESignatureDTO electronicSignatureDTO;	
-	// private String elecSignatureDate; 
-    // private String actionName; 
-    // private String sendReqTo; 
+	// private String futCompChgFlag;
+	// private ESignatureDTO electronicSignatureDTO;
+	// private String elecSignatureDate;
+    // private String actionName;
+    // private String sendReqTo;
 	// private String oldObId;
 	// private String oldCompId;
-	
+
 // 	private Date actStartDate;
 // 	private String lcaId;
 // 	private String isException;
@@ -197,9 +198,9 @@ export class CompensationDetailsDTO {
 // 	private Timestamp excepAppDt;
 // 	private double bonusAmt;
 // 	private String compClientName;
-	
-// 	private String compTeamMetricsStartDate; 
-// 	private String compTeamMetricsEndDate;  
+
+// 	private String compTeamMetricsStartDate;
+// 	private String compTeamMetricsEndDate;
 // 	private Integer totalCompRejected;
 // 	private Integer totalCompApproved;
 // 	private Integer totalCompSubmitted;
@@ -212,11 +213,11 @@ export class CompensationDetailsDTO {
 // 	private CompensationDetailsDTO allCompApprover;
 // 	private String approvedDt;
 // 	private String offerApprovedDt;
-	
+
 // 	private String	workLocation;
 // 	private String jobFamily;
 // 	private Date payRollDt;
-	
+
 // 	private String employer;
 // 	private Date offerSentDt;
 // 	private String projMgrEmail;
@@ -259,19 +260,19 @@ export class CompensationDetailsDTO {
 // 	private Date mlStartDt;
 // 	private Date mlEndDt;
 // 	private Date terminationDt;
-// 	private Date ibmResignDt;	
+// 	private Date ibmResignDt;
 // 	private Date returntoWorkDt;
 // 	private String rePaymentAmount;
 // 	private String rePaymentRec;
 // 	private Date ctdUpdDate;
-	
+
 // 	private Date propEndDate;
 // 	private Date eSignDate;
-	
+
 // 	private String isReqCtdByCompTeam;
 // 	private String stateName;
 // 	private String stateCode;
-	
+
 // 	private String newWorkLocation;
 // 	private String newCompensation;
 // 	private Date relocDate;
@@ -282,7 +283,7 @@ export class CompensationDetailsDTO {
 // 	private String newCompensationAmt;
 // 	private String currentCompensatiamt;
 // 	private String isRemoteApprovalue;
-	
+
 // 	private Date assignStartDat;
 // 	private Date ctdUpdDat;
 // 	private Date prosdStartDat;
@@ -329,7 +330,7 @@ export class CompensationDetailsDTO {
 // 	private String jobFamilyCode;
 // 	private String empNumber;
 //     private String jobProfile;
-    	
+
 // 	private String countryIsoCode;
 //     private String busJustReloc;
 // 	private Date geoValueDate;
@@ -363,8 +364,8 @@ export class CompensationDetailsDTO {
 // 	private String eligibleForRedep;
 // 	private String isremoteApproval;
 // 	private String streetAdd;
-	
+
 	hostCountrySerial: string;
-	hostEmpEmail: string;
-	
+	// hostEmpEmail: string;
+
 }
